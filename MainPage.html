@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Curriculum</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		   .hero-header {
+			   background: url('Images/Fundo Main.jpg') center/cover no-repeat;
+			height: 320px;
+			display: flex;
+			align-items: flex-end;
+			justify-content: flex-start;
+			position: relative;
+			transition: height 0.4s;
+		}
+		.hero-header.minimized {
+			height: 110px;
+			background: #222;
+			transition: height 0.4s, background 0.4s;
+		}
+		.hero-header .header-content {
+			width: 100%;
+			background: rgba(34,34,34,0.7);
+			border-radius: 0 0 12px 0;
+			padding-bottom: 1.5rem;
+			transition: background 0.4s;
+		}
+		.hero-header.minimized .header-content {
+			background: none;
+			padding-bottom: 0.5rem;
+		}
+	</style>
+</head>
+<body>
+	<header class="hero-header" id="heroHeader">
+		<div class="header-content">
+			<div class="header-left">
+				<img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+				<span class="profile-name">Vilácio Cordeiro Júnior</span>
+			</div>
+			<div class="header-right">
+				<div class="contact-info">Email: CordeiroJuniorVilacio@gmail.com</div>
+				<div class="contact-info">Phone: (13) 9 9677-8306</div>
+				<div class="contact-info">Address: Bertioga - SP - Brasil</div>
+			</div>
+		</div>
+	</header>
+	<nav>
+		   <a href="MainPage.html" class="active">Main</a>
+		   <a href="academic.html">Academic Formation</a>
+		   <div class="nav-dropdown">
+			   <a href="#">Projects ▼</a>
+			   <div class="dropdown-content">
+				   <a href="project1.html">Project 1 - Portfolio Website</a>
+				   <a href="project2.html">Project 2 - Data Analysis Tool</a>
+				   <a href="project3.html">Project 3 - Mobile App</a>
+			   </div>
+		   </div>
+		   <a href="about.html">About me</a>
+		   <a href="enterprises.html">Enterprises</a>
+		   <a href="contact.html">Contact</a>
+	</nav>
+	   <main>
+
+
+		<section class="objective-section">
+			<h2>Objetivo Profissional</h2>
+			<p>Atuar na área de Tecnologia da Informação, com foco em desenvolvimento de sistemas e análise de dados, aplicando e aprimorando meus conhecimentos técnicos para contribuir com resultados eficazes.</p>
+		</section>
+  
+		<section class="resume-base">
+			<h2>Formação Acadêmica</h2>
+			<ul>
+				<li><strong>Ensino Superior – Cursando:</strong></li>
+				<li>Bacharelado em Sistemas da Informação - Unisanta (2025 - previsão: 2029)</li>
+			</ul>
+		</section>
+
+		<section class="experience-section">
+			<h2>Experiências Profissionais</h2>
+		</section>
+
+		<section class="experience-item">
+			<h3 class="experience-title">Agente de Segurança - Jovem Aprendiz</h3>
+			<div class="experience-details">
+				<div><strong>Empresa:</strong> Associação dos amigos da Riviera – Campb</div>
+				<div><strong>Período:</strong> 08/05/2025 - Atual</div>
+				<div><strong>Atividades:</strong> Patrulhamento, vigilância e orientação em área costeira</div>
+			</div>
+		</section>
+
+		<section class="courses-section">
+			<h2>Cursos Extracurriculares</h2>
+			<ul>
+				<li>Pacote Office Básico</li>
+				<li>Python Impressionador – Hashtag Treinamentos</li>
+				<li>Inglês Intermediário - Conversação avançada, leitura e escrita intermediária</li>
+			</ul>
+		</section>
+
+	<section class="about-summary">
+		<h2>Qualificação Profissional</h2>
+		<ul>
+			<li>Adaptabilidade</li>
+			<li>Comprometimento</li>
+			<li>Capacidade de falar em equipamento de comunicação</li>
+			<li>Pacote Office básico</li>
+			<li>Design e Edição: Adobe Photoshop, Canva, Figma</li>
+			<li>Manutenção de computadores: Montagem e manutenção básica</li>
+			<li>Banco de dados: Conhecimento básico em SQL e NoSQL</li>
+			<li>Desenvolvimento Back-end: Noções em Python, Java, C#, JavaScript e Node.js</li>
+		</ul>
+	</section>
+
+		<section class="skills-section">
+			<div class="skills-lists">
+				<div>
+					<span class="skills-label soft">Soft Skills</span>
+					<ul class="soft-skills">
+						<li>Adaptabilidade</li>
+						<li>Comprometimento</li>
+						<li>Comunicação</li>
+						<li>Trabalho em equipe</li>
+					</ul>
+				</div>
+				<div>
+					<span class="skills-label hard">Hard Skills</span>
+					<ul class="hard-skills">
+						<li>Pacote Office</li>
+						<li>Python</li>
+						<li>SQL e NoSQL</li>
+						<li>Java, C#, JavaScript, Node.js</li>
+						<li>Design: Photoshop, Canva, Figma</li>
+						<li>Manutenção de computadores</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="availability-section">
+			<h2>Disponibilidade</h2>
+			<p>Manhã e Tarde</p>
+		</section>
+	   </main>
+
+	   <footer class="site-footer">
+			<div class="footer-content">
+				&copy; 2025 Your Name. All rights reserved. | Designed for Curriculum Project
+			</div>
+		</footer>
+
+<script>
+// Minimize hero header on scroll
+const heroHeader = document.getElementById('heroHeader');
+window.addEventListener('scroll', function() {
+	if (window.scrollY > 120) {
+		heroHeader.classList.add('minimized');
+	} else {
+		heroHeader.classList.remove('minimized');
+	}
+});
+</script>
+</body>
+</html>
+
