@@ -484,6 +484,53 @@ section:last-child {
 	text-align: justify;
 }
 
+/* ========== CONTACT CARDS ========== */
+.contact-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: var(--spacing-lg);
+	margin-top: var(--spacing-xl);
+}
+
+.contact-card {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-md);
+	padding: var(--spacing-lg);
+	background: var(--color-bg-section);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	text-decoration: none;
+	transition: all var(--transition-fast);
+}
+
+.contact-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+	border-color: var(--color-primary);
+}
+
+.contact-card img {
+	width: 60px;
+	height: 60px;
+	object-fit: contain;
+	flex-shrink: 0;
+}
+
+.contact-card h3 {
+	margin: 0;
+	padding: 0;
+	font-size: var(--font-size-lg);
+	color: var(--color-primary);
+	border: none;
+	background: none;
+	transition: color var(--transition-fast);
+}
+
+.contact-card:hover h3 {
+	color: var(--color-accent);
+}
+
 /* Responsive - Posts */
 @media (max-width: 768px) {
 	.post-segment-2 {
@@ -494,6 +541,10 @@ section:last-child {
 		width: 100%;
 		height: auto;
 		min-height: 150px;
+	}
+	
+	.contact-grid {
+		grid-template-columns: 1fr;
 	}
 }
 
