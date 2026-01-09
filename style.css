@@ -490,6 +490,8 @@ section:last-child {
 	grid-template-columns: repeat(2, 1fr);
 	gap: var(--spacing-lg);
 	margin-top: var(--spacing-xl);
+	width: 100%;
+	max-width: 100%;
 }
 
 .contact-card {
@@ -502,6 +504,7 @@ section:last-child {
 	border-radius: var(--radius-md);
 	text-decoration: none;
 	transition: all var(--transition-fast);
+	min-height: 100px;
 }
 
 .contact-card:hover {
@@ -511,10 +514,15 @@ section:last-child {
 }
 
 .contact-card img {
-	width: 60px;
-	height: 60px;
+	width: 60px !important;
+	height: 60px !important;
+	min-width: 60px;
+	min-height: 60px;
+	max-width: 60px;
+	max-height: 60px;
 	object-fit: contain;
 	flex-shrink: 0;
+	display: block;
 }
 
 .contact-card h3 {
