@@ -5,6 +5,86 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Contact - My Curriculum</title>
 	<link rel="stylesheet" href="style.css">
+	<style>
+		/* CSS INLINE FORÇADO PARA CONTATOS */
+		.contacts-container {
+			display: grid !important;
+			grid-template-columns: repeat(2, 1fr) !important;
+			gap: 24px !important;
+			margin-top: 32px !important;
+			width: 100% !important;
+			max-width: 100% !important;
+		}
+
+		.contact-item {
+			display: flex !important;
+			align-items: center !important;
+			gap: 16px !important;
+			padding: 20px !important;
+			background: #fafafa !important;
+			border: 1px solid #e0e0e0 !important;
+			border-radius: 8px !important;
+			text-decoration: none !important;
+			transition: all 0.3s ease !important;
+			min-height: 100px !important;
+		}
+
+		.contact-item:hover {
+			transform: translateY(-4px) !important;
+			box-shadow: 0 6px 16px rgba(0,0,0,0.1) !important;
+			border-color: #222 !important;
+		}
+
+		.contact-icon-wrapper {
+			width: 60px !important;
+			height: 60px !important;
+			min-width: 60px !important;
+			min-height: 60px !important;
+			background-size: contain !important;
+			background-repeat: no-repeat !important;
+			background-position: center !important;
+			flex-shrink: 0 !important;
+		}
+
+		.contact-info {
+			display: flex !important;
+			flex-direction: column !important;
+			gap: 4px !important;
+		}
+
+		.contact-info h3 {
+			margin: 0 !important;
+			padding: 0 !important;
+			font-size: 18px !important;
+			color: #222 !important;
+			font-weight: 600 !important;
+			border: none !important;
+			background: none !important;
+		}
+
+		.contact-item:hover .contact-info h3 {
+			color: #444 !important;
+		}
+
+		@media (max-width: 768px) {
+			.contacts-container {
+				grid-template-columns: 1fr !important;
+				gap: 16px !important;
+			}
+			
+			.contact-item {
+				padding: 16px !important;
+				min-height: 80px !important;
+			}
+			
+			.contact-icon-wrapper {
+				width: 50px !important;
+				height: 50px !important;
+				min-width: 50px !important;
+				min-height: 50px !important;
+			}
+		}
+	</style>
 </head>
 <body>
 	<header>
