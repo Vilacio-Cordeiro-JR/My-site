@@ -70,15 +70,15 @@
 				<h3><a href="#" class="project-subtitle">Estatísticas do Projeto</a></h3>
 				<div class="stats-grid">
 					<div class="stat-item">
-						<span class="stat-number">79+</span>
+						<span class="stat-number" data-target="79">0</span><span class="stat-plus">+</span>
 						<span class="stat-label">Commits</span>
 					</div>
 					<div class="stat-item">
-						<span class="stat-number">JavaScript 99.2%</span>
+						<span class="stat-number">JavaScript <span data-target="99.2">0</span>%</span>
 						<span class="stat-label">Linguagem</span>
 					</div>
 					<div class="stat-item">
-						<span class="stat-number">Incompleto</span>
+						<span class="stat-number">Concluído</span>
 						<span class="stat-label">Status</span>
 					</div>
 				</div>
@@ -99,5 +99,43 @@
 	<footer>
 		<p>© 2026 Vilácio Cordeiro Júnior</p>
 	</footer>
+	<script>
+		// Animação de contagem para estatísticas
+		function animateCounter(element, target, duration = 2000) {
+			const start = 0;
+			const increment = target / (duration / 16);
+			let current = start;
+			
+			const timer = setInterval(() => {
+				current += increment;
+				if (current >= target) {
+					element.textContent = target % 1 === 0 ? Math.round(target) : target.toFixed(1);
+					clearInterval(timer);
+				} else {
+					element.textContent = current % 1 === 0 ? Math.round(current) : current.toFixed(1);
+				}
+			}, 16);
+		}
+
+		// Observador para iniciar animação quando a seção aparecer
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+					entry.target.classList.add('animated');
+					const counters = entry.target.querySelectorAll('[data-target]');
+					counters.forEach(counter => {
+						const target = parseFloat(counter.getAttribute('data-target'));
+						animateCounter(counter, target);
+					});
+				}
+			});
+		}, { threshold: 0.5 });
+
+		// Observar a seção de estatísticas
+		const statsSection = document.querySelector('.project-stats');
+		if (statsSection) {
+			observer.observe(statsSection);
+		}
+	</script>
 </body>
 </html>
