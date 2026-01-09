@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Victis Creative and Jolt - My Curriculum</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+		<img src="Images/ProfileImage.png" alt="Profile Picture">
+		<h1>Vilácio Cordeiro Júnior</h1>
+		<address>CordeiroJuniorVilacio@gmail.com | (13) 9 9677-8306 | <span id="age"></span> anos | Bertioga - SP - Brasil</address>
+	</header>
+	<script>
+		const birthDate = new Date('2006-11-14');
+		const today = new Date();
+		let age = today.getFullYear() - birthDate.getFullYear();
+		const monthDiff = today.getMonth() - birthDate.getMonth();
+		if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+			age--;
+		}
+		document.getElementById('age').textContent = age;
+	</script>
+	<nav>
+		<a href="1-MainPage.html">Principal</a>
+		<a href="2-academic.html">Formação Acadêmica</a>
+		<a href="3-projects.html">Projetos</a>
+		<a href="4-about.html">Sobre mim</a>
+		<a href="5-enterprises.html">Empresas</a>
+		<a href="6-contact.html">Contato</a>
+	</nav>
+	<main class="project-detail">
+		<section>
+			<a href="5-enterprises.html" class="btn-back">← Voltar para Empresas</a>
+		</section>
+
+		<section>
+			<h2>Victis Creative and Jolt</h2>
+			<img src="Images/Empresas/Logo Empresa.png" alt="Logo Victis Creative and Jolt" style="max-width: 200px; display: block; margin: var(--spacing-md) 0;">
+		</section>
+
+		<section>
+			<h2>Sobre a Empresa</h2>
+			<p>Descrição detalhada da empresa, sua missão, visão e valores.</p>
+			<p>Adicione mais informações sobre a história da empresa, seus objetivos e diferenciais no mercado.</p>
+		</section>
+
+		<section>
+			<h2>Informações Gerais</h2>
+			<ul>
+				<li><strong>Segmento:</strong> Design gráfico e tecnologia</li>
+				<li><strong>Fundação:</strong> Novembro de 2024</li>
+				<li><strong>Status:</strong> Ativa</li>
+				<li><strong>Localização:</strong> [Adicionar localização]</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Serviços Oferecidos</h2>
+			<ul>
+				<li>Design gráfico profissional</li>
+				<li>Desenvolvimento de identidade visual</li>
+				<li>Soluções tecnológicas personalizadas</li>
+				<li>[Adicionar mais serviços]</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Estatísticas</h2>
+			<div class="stats-grid">
+				<div class="stat-item">
+					<span class="stat-number" data-target="10">0</span>
+					<span class="stat-label">Projetos Realizados</span>
+				</div>
+				<div class="stat-item">
+					<span class="stat-number" data-target="8">0</span>
+					<span class="stat-label">Clientes Atendidos</span>
+				</div>
+				<div class="stat-item">
+					<span class="stat-number" data-target="100">0</span>
+					<span class="stat-label">Taxa de Satisfação (%)</span>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<h2>Tecnologias e Ferramentas</h2>
+			<div class="project-tech">
+				<span class="tech-badge">Adobe Photoshop</span>
+				<span class="tech-badge">Adobe Illustrator</span>
+				<span class="tech-badge">Figma</span>
+				<span class="tech-badge">Canva</span>
+				<span class="tech-badge">[Adicionar mais ferramentas]</span>
+			</div>
+		</section>
+
+		<section>
+			<h2>Conquistas e Marcos</h2>
+			<ul>
+				<li>Fundação da empresa em novembro de 2024</li>
+				<li>[Adicionar conquistas e marcos importantes]</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Contato</h2>
+			<p><strong>Email:</strong> [email@victis.com]</p>
+			<p><strong>Website:</strong> [www.victis.com]</p>
+			<p><strong>Redes Sociais:</strong> [Links para redes sociais]</p>
+		</section>
+
+		<section>
+			<a href="5-enterprises.html" class="btn-back">← Voltar para Empresas</a>
+		</section>
+	</main>
+
+	<footer>
+		<p>© 2026 Vilácio Cordeiro Júnior</p>
+	</footer>
+
+	<script>
+		// Animated counter for statistics
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const target = parseInt(entry.target.dataset.target);
+					const duration = 2000;
+					const steps = 60;
+					const increment = target / steps;
+					let current = 0;
+					const timer = setInterval(() => {
+						current += increment;
+						if (current >= target) {
+							entry.target.textContent = target;
+							clearInterval(timer);
+						} else {
+							entry.target.textContent = Math.floor(current);
+						}
+					}, duration / steps);
+					observer.unobserve(entry.target);
+				}
+			});
+		});
+
+		document.querySelectorAll('.stat-number').forEach(stat => {
+			observer.observe(stat);
+		});
+	</script>
+</body>
+</html>
