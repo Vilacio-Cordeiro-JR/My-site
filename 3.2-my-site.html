@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My-site - Vilácio Cordeiro Júnior</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+		<img src="Images/ProfileImage.png" alt="Profile Picture">
+		<h1>Vilácio Cordeiro Júnior</h1>
+		<address>CordeiroJuniorVilacio@gmail.com | (13) 9 9677-8306 | <span id="age"></span> anos | Bertioga - SP - Brasil</address>
+	</header>
+	<script>
+		const birthDate = new Date('2006-11-14');
+		const today = new Date();
+		let age = today.getFullYear() - birthDate.getFullYear();
+		const monthDiff = today.getMonth() - birthDate.getMonth();
+		if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+			age--;
+		}
+		document.getElementById('age').textContent = age;
+	</script>
+	<nav>
+		<a href="1-MainPage.html">Main</a>
+		<a href="2-academic.html">Academic Formation</a>
+		<a href="3-projects.html" class="active">Projects</a>
+		<a href="4-about.html">About me</a>
+		<a href="5-enterprises.html">Enterprises</a>
+		<a href="6-contact.html">Contact</a>
+	</nav>
+	<main>
+		<div class="project-detail">
+			<h2><a href="#" class="section-title">My-site - Portfólio Profissional</a></h2>
+			
+			<section class="project-overview">
+				<h3><a href="#" class="project-subtitle">Visão Geral</a></h3>
+				<p>Site pessoal desenvolvido para apresentar portfólio, currículo e projetos profissionais. Construído com tecnologias web fundamentais (HTML5, CSS3, JavaScript), o projeto demonstra habilidades em desenvolvimento front-end, design responsivo e boas práticas de versionamento com Git.</p>
+			</section>
+
+			<section class="project-technologies">
+				<h3><a href="#" class="project-subtitle">Tecnologias Utilizadas</a></h3>
+				<ul>
+					<li><strong>Frontend:</strong> HTML5 semântico, CSS3 com variáveis customizadas, JavaScript ES6+</li>
+					<li><strong>Estilização:</strong> CSS modular com arquitetura baseada em componentes</li>
+					<li><strong>Versionamento:</strong> Git e GitHub para controle de versão</li>
+					<li><strong>Deploy:</strong> Vercel com configuração otimizada</li>
+					<li><strong>Recursos:</strong> Intersection Observer API, animações CSS, design responsivo</li>
+				</ul>
+			</section>
+
+			<section class="project-features">
+				<h3><a href="#" class="project-subtitle">Funcionalidades</a></h3>
+				<ul>
+					<li>Página principal com apresentação profissional e sistema de posts</li>
+					<li>Currículo completo em página separada para impressão/compartilhamento</li>
+					<li>Seção de projetos com cards interativos e páginas de detalhes</li>
+					<li>Formação acadêmica com estrutura de posts estilizados</li>
+					<li>Cálculo automático de idade com JavaScript</li>
+					<li>Animações de contagem crescente nas estatísticas</li>
+					<li>Design 100% responsivo para mobile e desktop</li>
+					<li>Sistema de navegação consistente em todas as páginas</li>
+					<li>Estrutura modular e escalável para novos conteúdos</li>
+				</ul>
+			</section>
+
+			<section class="project-stats">
+				<h3><a href="#" class="project-subtitle">Estatísticas do Projeto</a></h3>
+				<div class="stats-grid">
+					<div class="stat-item">
+						<span class="stat-number"><span data-target="20">0</span>+</span>
+						<span class="stat-label">Commits</span>
+					</div>
+					<div class="stat-item">
+						<span class="stat-number">HTML/CSS/JS</span>
+						<span class="stat-label">Tecnologias</span>
+					</div>
+					<div class="stat-item">
+						<span class="stat-number">Em Produção</span>
+						<span class="stat-label">Status</span>
+					</div>
+				</div>
+			</section>
+
+			<section class="project-objectives">
+				<h3><a href="#" class="project-subtitle">Objetivos</a></h3>
+				<p>Criar um site profissional moderno para apresentação de portfólio e currículo, utilizando tecnologias web fundamentais com foco em performance, acessibilidade e design responsivo. O projeto busca demonstrar competências técnicas em desenvolvimento front-end, além de servir como plataforma para compartilhamento de projetos e experiências profissionais.</p>
+			</section>
+
+			<section class="project-links">
+				<h3><a href="#" class="project-subtitle">Links</a></h3>
+				<a href="https://github.com/Vilacio-Cordeiro-JR/My-site" target="_blank" class="btn-github">Ver no GitHub</a>
+				<a href="3-projects.html" class="btn-back">Voltar aos Projetos</a>
+			</section>
+		</div>
+	</main>
+	<footer>
+		<p>© 2026 Vilácio Cordeiro Júnior</p>
+	</footer>
+	<script>
+		// Animação de contagem para estatísticas
+		function animateCounter(element, target, duration = 2000) {
+			const start = 0;
+			const increment = target / (duration / 16);
+			let current = start;
+			
+			const timer = setInterval(() => {
+				current += increment;
+				if (current >= target) {
+					element.textContent = target % 1 === 0 ? Math.round(target) : target.toFixed(1);
+					clearInterval(timer);
+				} else {
+					element.textContent = current % 1 === 0 ? Math.round(current) : current.toFixed(1);
+				}
+			}, 16);
+		}
+
+		// Observador para iniciar animação quando a seção aparecer
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+					entry.target.classList.add('animated');
+					const counters = entry.target.querySelectorAll('[data-target]');
+					counters.forEach(counter => {
+						const target = parseFloat(counter.getAttribute('data-target'));
+						animateCounter(counter, target);
+					});
+				}
+			});
+		}, { threshold: 0.5 });
+
+		// Observar a seção de estatísticas
+		const statsSection = document.querySelector('.project-stats');
+		if (statsSection) {
+			observer.observe(statsSection);
+		}
+	</script>
+</body>
+</html>
