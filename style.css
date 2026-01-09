@@ -475,6 +475,15 @@ section:last-child {
 	font-style: italic;
 }
 
+/* Descrição da empresa */
+.enterprise-description {
+	font-size: var(--font-size-base);
+	color: var(--color-text);
+	line-height: var(--line-height);
+	margin: 0 0 var(--spacing-md) 0;
+	text-align: justify;
+}
+
 /* Responsive - Posts */
 @media (max-width: 768px) {
 	.post-segment-2 {
