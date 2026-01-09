@@ -513,16 +513,20 @@ section:last-child {
 	border-color: var(--color-primary);
 }
 
-.contact-card img {
+.contact-grid .contact-card img {
 	width: 60px !important;
 	height: 60px !important;
-	min-width: 60px;
-	min-height: 60px;
-	max-width: 60px;
-	max-height: 60px;
-	object-fit: contain;
+	min-width: 60px !important;
+	min-height: 60px !important;
+	max-width: 60px !important;
+	max-height: 60px !important;
+	object-fit: contain !important;
 	flex-shrink: 0;
-	display: block;
+	display: block !important;
+	border-radius: 0 !important;
+	border: none !important;
+	background: transparent !important;
+	margin: 0 !important;
 }
 
 .contact-card h3 {
