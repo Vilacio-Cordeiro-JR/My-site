@@ -1,0 +1,103 @@
+# 🚫 Git Ignore - Projeto Portfólio
+
+# ===================================
+# 📁 Pastas de Sistema
+# ===================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===================================
+# 🔧 IDEs e Editores
+# ===================================
+.vscode/
+.idea/
+*.sublime-*
+*.swp
+*.swo
+*~
+
+# ===================================
+# 📦 Node.js (se usar no futuro)
+# ===================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ===================================
+# 🌐 Vercel
+# ===================================
+.vercel
+
+# ===================================
+# 💾 Backups
+# ===================================
+*.backup
+*.bak
+*.old
+backup/*.zip
+backup/*-archive.*
+
+# ===================================
+# 📄 Documentos Pessoais
+# ===================================
+# Descomente se quiser evitar commit de PDFs com dados sensíveis
+# assets/curriculo/*.pdf
+# *.pdf
+
+# ===================================
+# 🖼️ Cache de Imagens
+# ===================================
+*.psd
+*.ai
+*.sketch
+.thumbnails/
+
+# ===================================
+# 🔐 Arquivos Sensíveis
+# ===================================
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+*.cert
+
+# ===================================
+# 📊 Logs
+# ===================================
+*.log
+logs/
+
+# ===================================
+# 🧪 Testes (futuro)
+# ===================================
+coverage/
+.nyc_output/
+*.test.js.snap
+
+# ===================================
+# 🏗️ Build (futuro)
+# ===================================
+dist/
+build/
+out/
+*.min.js
+*.min.css
+
+# ===================================
+# 📝 Temporários
+# ===================================
+*.tmp
+temp/
+tmp/
+.cache/
+
+# ===================================
+# 🔍 Outros
+# ===================================
+.git/
+*.orig

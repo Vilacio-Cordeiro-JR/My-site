@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>My-site - Vilácio Cordeiro Júnior</title>
-	<link rel="stylesheet" href="style.css">
+	<title>Sistema de Orçamentos RadCom - Vilácio Cordeiro Júnior</title>
+	<link rel="stylesheet" href="../src/css/style.css?v=2.0">
 </head>
 <body>
 	<header>
-		<img src="Images/ProfileImage.png" alt="Profile Picture">
+		<img src="../assets/images/ProfileImage.png" alt="Profile Picture">
 		<h1>Vilácio Cordeiro Júnior</h1>
 		<address>CordeiroJuniorVilacio@gmail.com | (13) 9 9677-8306 | <span id="age"></span> anos | Bertioga - SP - Brasil</address>
 	</header>
@@ -32,36 +32,37 @@
 	</nav>
 	<main>
 		<div class="project-detail">
-			<h2><a href="#" class="section-title">My-site - Portfólio Profissional</a></h2>
+			<h2><a href="#" class="section-title">Sistema de Orçamentos RadCom</a></h2>
 			
 			<section class="project-overview">
 				<h3><a href="#" class="project-subtitle">Visão Geral</a></h3>
-				<p>Site pessoal desenvolvido para apresentar portfólio, currículo e projetos profissionais. Construído com tecnologias web fundamentais (HTML5, CSS3, JavaScript), o projeto demonstra habilidades em desenvolvimento front-end, design responsivo e boas práticas de versionamento com Git.</p>
+				<p>Sistema completo de gestão de orçamentos com autenticação, multi-sede e relatórios de vendas. Desenvolvido para a empresa RadCom, permite gestão eficiente de orçamentos, controle de vendas por sede, sistema de permissões hierárquico e geração de relatórios visuais.</p>
 			</section>
 
 			<section class="project-technologies">
 				<h3><a href="#" class="project-subtitle">Tecnologias Utilizadas</a></h3>
 				<ul>
-					<li><strong>Frontend:</strong> HTML5 semântico, CSS3 com variáveis customizadas, JavaScript ES6+</li>
-					<li><strong>Estilização:</strong> CSS modular com arquitetura baseada em componentes</li>
-					<li><strong>Versionamento:</strong> Git e GitHub para controle de versão</li>
-					<li><strong>Deploy:</strong> Vercel com configuração otimizada</li>
-					<li><strong>Recursos:</strong> Intersection Observer API, animações CSS, design responsivo</li>
+					<li><strong>Backend:</strong> Node.js 18+, Express 4.18, SQLite/PostgreSQL, Knex.js, bcryptjs</li>
+					<li><strong>Frontend:</strong> React 18.2, Vite 4.4, Tailwind CSS, Chart.js, React Router DOM</li>
+					<li><strong>Banco de Dados:</strong> SQLite (desenvolvimento) / PostgreSQL (produção)</li>
+					<li><strong>Deploy:</strong> Railway (backend), Vercel/AWS Amplify (frontend)</li>
+					<li><strong>Ferramentas:</strong> Docker, Git, Excel Integration</li>
 				</ul>
 			</section>
 
 			<section class="project-features">
 				<h3><a href="#" class="project-subtitle">Funcionalidades</a></h3>
 				<ul>
-					<li>Página principal com apresentação profissional e sistema de posts</li>
-					<li>Currículo completo em página separada para impressão/compartilhamento</li>
-					<li>Seção de projetos com cards interativos e páginas de detalhes</li>
-					<li>Formação acadêmica com estrutura de posts estilizados</li>
-					<li>Cálculo automático de idade com JavaScript</li>
-					<li>Animações de contagem crescente nas estatísticas</li>
-					<li>Design 100% responsivo para mobile e desktop</li>
-					<li>Sistema de navegação consistente em todas as páginas</li>
-					<li>Estrutura modular e escalável para novos conteúdos</li>
+					<li>Autenticação completa: Login, registro, perfis de usuário</li>
+					<li>Sistema de cargos: Hierarquia com permissões (Dono, Gerente, Técnico, Vendedor, Atendente)</li>
+					<li>Gestão de orçamentos: Criar, editar, salvar, carregar cotações</li>
+					<li>Multi-sede: Vendas rastreadas por localização (Matriz, Filiais)</li>
+					<li>Confirmação de vendas: Com validação de desconto e aprovação ADM</li>
+					<li>Relatórios visuais: Gráficos de linha com histórico de vendas por técnico</li>
+					<li>Permissões granulares: ADM/criador podem excluir orçamentos</li>
+					<li>SQL Viewer: Interface para visualizar e consultar banco de dados</li>
+					<li>Catálogo de produtos: Importação via Excel</li>
+					<li>Geração de PDF: Orçamentos exportáveis</li>
 				</ul>
 			</section>
 
@@ -69,35 +70,48 @@
 				<h3><a href="#" class="project-subtitle">Estatísticas do Projeto</a></h3>
 				<div class="stats-grid">
 					<div class="stat-item">
-						<span class="stat-number"><span data-target="20">0</span>+</span>
 						<span class="stat-label">Commits</span>
+                        <span class="stat-number"><span data-target="79">0</span>+</span>
 					</div>
 					<div class="stat-item">
-						<span class="stat-number">HTML/CSS/JS</span>
-						<span class="stat-label">Tecnologias</span>
+						<span class="stat-label">Linguagem</span>
+                        <span class="stat-number">JavaScript <span data-target="99.2">0</span>%</span>
 					</div>
 					<div class="stat-item">
-						<span class="stat-number">Em Produção</span>
 						<span class="stat-label">Status</span>
+                        <span class="stat-number">Concluído</span>
 					</div>
 				</div>
 			</section>
 
 			<section class="project-objectives">
 				<h3><a href="#" class="project-subtitle">Objetivos</a></h3>
-				<p>Criar um site profissional moderno para apresentação de portfólio e currículo, utilizando tecnologias web fundamentais com foco em performance, acessibilidade e design responsivo. O projeto busca demonstrar competências técnicas em desenvolvimento front-end, além de servir como plataforma para compartilhamento de projetos e experiências profissionais.</p>
+				<p>Desenvolver um sistema completo de gestão de orçamentos para a empresa RadCom, automatizando processos de vendas, implementando controle de acesso por hierarquia de cargos, permitindo gestão multi-sede e fornecendo relatórios visuais para análise de desempenho de vendas. O sistema busca eficiência operacional, segurança de dados e facilidade de uso para diferentes níveis de usuários.</p>
 			</section>
 
 			<section class="project-links">
 				<h3><a href="#" class="project-subtitle">Links</a></h3>
-				<a href="https://github.com/Vilacio-Cordeiro-JR/My-site" target="_blank" class="btn-github">Ver no GitHub</a>
+				<a href="https://github.com/Vilacio-Cordeiro-JR/Projeto-Radcom-Cota-es" target="_blank" class="btn-github">Ver no GitHub</a>
 				<a href="3-projects.html" class="btn-back">Voltar aos Projetos</a>
 			</section>
 		</div>
 	</main>
+	
+	<!-- Dark Mode Toggle Button -->
+	<button class="theme-toggle" aria-label="Toggle Dark Mode">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+			<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+		</svg>
+	</button>
+	
+	<!-- Scroll to Top Button -->
+	<button class="scroll-to-top" aria-label="Scroll to Top">↑</button>
+	
 	<footer>
 		<p>© 2026 Vilácio Cordeiro Júnior</p>
 	</footer>
+	
+	<script src="../src/js/script.js"></script>
 	<script>
 		// Animação de contagem para estatísticas
 		function animateCounter(element, target, duration = 2000) {

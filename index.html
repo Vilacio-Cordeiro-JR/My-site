@@ -3,13 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="refresh" content="0; url=1-MainPage.html">
+	<meta http-equiv="refresh" content="0; url=pages/1-MainPage.html">
 	<title>Vilácio Cordeiro Júnior</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="src/css/style.css?v=2.0">
 </head>
 <body>
 	<header>
-		<img src="Images/ProfileImage.png" alt="Profile Picture">
+		<img src="assets/images/ProfileImage.png" alt="Profile Picture">
 		<h1>Vilácio Cordeiro Júnior</h1>
 		<address><span id="age"></span> anos | CordeiroJuniorVilacio@gmail.com | (13) 9 9677-8306 | Bertioga - SP - Brasil</address>
 	</header>
@@ -24,12 +24,12 @@
 		document.getElementById('age').textContent = age;
 	</script>
 	<nav>
-		<a href="1-MainPage.html" class="active">Principal</a>
-		<a href="2-academic.html">Formação Acadêmica</a>
-		<a href="3-projects.html">Projetos</a>
-		<a href="4-about.html">Sobre mim</a>
-		<a href="5-enterprises.html">Empresas</a>
-		<a href="6-contact.html">Contato</a>
+		<a href="pages/1-MainPage.html" class="active">Principal</a>
+		<a href="pages/2-academic.html">Formação Acadêmica</a>
+		<a href="pages/3-projects.html">Projetos</a>
+		<a href="pages/4-about.html">Sobre mim</a>
+		<a href="pages/5-enterprises.html">Empresas</a>
+		<a href="pages/6-contact.html">Contato</a>
 	</nav>
 	<main>
 		<div class="welcome-section">
@@ -37,7 +37,7 @@
 			<p>Sou um profissional da área de tecnologia com atuação em design e conhecimentos em desenvolvimento, análise de dados e rotinas de escritório. Trabalho com foco em soluções funcionais, organização da informação e boa apresentação visual, buscando sempre clareza e eficiência nos projetos em que atuo.</p>
 			<p>Tenho facilidade em transitar entre diferentes áreas, o que me permite compreender demandas técnicas e operacionais de forma integrada. Meu interesse está em colaborar de maneira prática, contribuir para o bom andamento dos projetos e evoluir continuamente por meio da experiência e do aprendizado.</p>
 			<p>No botão abaixo, você pode conferir o meu currículo.</p>
-			<a href="curriculo.html" target="_blank" class="btn-curriculum">Ver Currículo Completo</a>
+			<a href="pages/curriculo.html" target="_blank" class="btn-curriculum">Ver Currículo Completo</a>
 		</div>
 
 		<!-- Posts Section -->
@@ -50,7 +50,7 @@
 				</div>
 				
 				<div class="post-segment-2">
-					<img src="Images/post-image.jpg" alt="Imagem do Post" class="post-image">
+					<img src="assets/images/post-image.jpg" alt="Imagem do Post" class="post-image">
 					<p class="post-description">
 						Esta é a descrição do post. Aqui você pode escrever sobre novidades, conquistas, 
 						projetos recentes ou qualquer informação relevante que deseja compartilhar. 
@@ -64,8 +64,21 @@
 			</article>
 		</section>
 	</main>
+	
+	<!-- Dark Mode Toggle Button -->
+	<button class="theme-toggle" aria-label="Toggle Dark Mode">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+			<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+		</svg>
+	</button>
+	
+	<!-- Scroll to Top Button -->
+	<button class="scroll-to-top" aria-label="Scroll to Top">↑</button>
+	
 	<footer>
 		<p>© 2026 Vilácio Cordeiro Júnior</p>
 	</footer>
+	
+	<script src="src/js/script.js"></script>
 </body>
 </html>

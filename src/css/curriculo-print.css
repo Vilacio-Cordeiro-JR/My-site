@@ -1,0 +1,265 @@
+/* ========== CURRÍCULO - ESTILO ABNT PARA IMPRESSÃO ========== */
+
+/* Estilos para visualização na tela */
+:root {
+	--abnt-font: 'Times New Roman', Times, serif;
+	--abnt-font-size: 12pt;
+	--abnt-line-height: 1.5;
+	--abnt-margin: 3cm 3cm 2cm 3cm;
+	--color-text: #000;
+	--color-bg: #fff;
+}
+
+body.curriculo-page {
+	font-family: var(--abnt-font);
+	font-size: var(--abnt-font-size);
+	line-height: var(--abnt-line-height);
+	color: var(--color-text);
+	background: #f5f5f5;
+	margin: 0;
+	padding: 0;
+}
+
+/* Container do currículo */
+.curriculo-container {
+	max-width: 21cm;
+	margin: 2rem auto;
+	background: white;
+	padding: 3cm 3cm 2cm 3cm;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	min-height: 29.7cm;
+}
+
+/* Cabeçalho do currículo */
+.curriculo-header {
+	text-align: center;
+	margin-bottom: 2cm;
+	border-bottom: 2px solid #000;
+	padding-bottom: 0.5cm;
+}
+
+.curriculo-header h1 {
+	font-size: 16pt;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin: 0 0 0.3cm 0;
+	letter-spacing: 1px;
+}
+
+.curriculo-header .contact-info {
+	font-size: 11pt;
+	margin: 0.3cm 0 0 0;
+	line-height: 1.4;
+}
+
+/* Botões de ação (não aparecem na impressão) */
+.action-buttons {
+	max-width: 21cm;
+	margin: 0 auto 1rem auto;
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	padding: 1rem;
+}
+
+.btn-print,
+.btn-download {
+	padding: 0.8rem 2rem;
+	font-size: 14px;
+	font-weight: 600;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.3s;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	text-decoration: none;
+	color: white;
+}
+
+.btn-print {
+	background: linear-gradient(135deg, #004E89 0%, #00A8E8 100%);
+	box-shadow: 0 4px 15px rgba(0, 78, 137, 0.3);
+}
+
+.btn-print:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(0, 78, 137, 0.4);
+}
+
+.btn-download {
+	background: linear-gradient(135deg, #FF6B35 0%, #FF8555 100%);
+	box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.btn-download:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.btn-back-home {
+	background: #666;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-back-home:hover {
+	background: #444;
+	transform: translateY(-2px);
+}
+
+/* Seções do currículo */
+.curriculo-section {
+	margin-bottom: 1.5cm;
+}
+
+.curriculo-section h2 {
+	font-size: 14pt;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin: 0 0 0.5cm 0;
+	border-bottom: 1px solid #000;
+	padding-bottom: 0.2cm;
+	letter-spacing: 0.5px;
+}
+
+.curriculo-section h3 {
+	font-size: 12pt;
+	font-weight: bold;
+	margin: 0.5cm 0 0.2cm 0;
+}
+
+.curriculo-section p {
+	text-align: justify;
+	margin: 0.3cm 0;
+}
+
+.curriculo-section ul {
+	margin: 0.3cm 0;
+	padding-left: 1.5cm;
+	list-style-type: disc;
+}
+
+.curriculo-section li {
+	margin: 0.2cm 0;
+	text-align: justify;
+}
+
+/* Dados do item de experiência/formação */
+.item-details {
+	margin-left: 0.5cm;
+	margin-bottom: 0.5cm;
+}
+
+.item-details strong {
+	font-weight: bold;
+}
+
+/* Skills em duas colunas */
+.skills-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1cm;
+	margin-top: 0.5cm;
+}
+
+.skills-column h3 {
+	font-size: 12pt;
+	font-weight: bold;
+	margin-bottom: 0.3cm;
+}
+
+.skills-column ul {
+	padding-left: 1cm;
+}
+
+/* ========== ESTILOS PARA IMPRESSÃO ========== */
+@media print {
+	body.curriculo-page {
+		background: white;
+		margin: 0;
+		padding: 0;
+	}
+
+	.curriculo-container {
+		max-width: 100%;
+		margin: 0;
+		padding: 3cm 3cm 2cm 3cm;
+		box-shadow: none;
+		page-break-after: avoid;
+	}
+
+	/* Esconder elementos que não devem ser impressos */
+	.action-buttons,
+	.theme-toggle,
+	.scroll-to-top,
+	nav,
+	footer {
+		display: none !important;
+	}
+
+	/* Ajustes de página */
+	@page {
+		size: A4;
+		margin: 0;
+	}
+
+	/* Evitar quebras de página inadequadas */
+	.curriculo-section {
+		page-break-inside: avoid;
+	}
+
+	h2, h3 {
+		page-break-after: avoid;
+	}
+
+	/* Garantir que links apareçam em preto */
+	a {
+		color: #000 !important;
+		text-decoration: none !important;
+	}
+
+	/* Fonte em preto sólido para impressão */
+	* {
+		color: #000 !important;
+		background: transparent !important;
+	}
+
+	.curriculo-container {
+		background: white !important;
+	}
+
+	/* Bordas em preto sólido */
+	.curriculo-header,
+	.curriculo-section h2 {
+		border-color: #000 !important;
+	}
+}
+
+/* ========== RESPONSIVE ========== */
+@media screen and (max-width: 768px) {
+	.curriculo-container {
+		margin: 1rem;
+		padding: 1.5cm 1cm;
+		max-width: 100%;
+	}
+
+	.action-buttons {
+		flex-direction: column;
+		padding: 0.5rem;
+		margin: 0.5rem;
+	}
+
+	.skills-container {
+		grid-template-columns: 1fr;
+		gap: 0.5cm;
+	}
+
+	.curriculo-header h1 {
+		font-size: 14pt;
+	}
+
+	.curriculo-section h2 {
+		font-size: 12pt;
+	}
+}

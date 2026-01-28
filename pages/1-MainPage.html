@@ -1,14 +1,17 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>My Curriculum</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../src/css/style.css?v=2.0">
 </head>
 <body>
 	<header>
-		<img src="Images/ProfileImage.png" alt="Profile Picture">
+		<img src="../assets/images/ProfileImage.png" alt="Profile Picture">
 		<h1>Vilácio Cordeiro Júnior</h1>
 		<address>CordeiroJuniorVilacio@gmail.com | (13) 9 9677-8306 | <span id="age"></span> anos | Bertioga - SP - Brasil</address>
 	</header>
@@ -49,7 +52,7 @@
 				</div>
 				
 				<div class="post-segment-2">
-					<img src="Images/Posts/Logo Emrpesa.png" alt="Imagem do Post" class="post-image">
+					<img src="../assets/images/Posts/Logo Emrpesa.png" alt="Imagem do Post" class="post-image">
 					<p class="post-description">
 						Sou um profissional em início de carreira na área de tecnologia, com foco em design e desenvolvimento de software. Atualmente curso faculdade na área e venho construindo minha experiência por meio de estudos, projetos e aprendizado contínuo. Busco oportunidades para ingressar no mercado, aprimorar minhas habilidades e evoluir profissionalmente, sempre unindo criatividade, organização e tecnologia no desenvolvimento de soluções.
 					</p>
@@ -65,8 +68,21 @@
 
 		</section>
 	</main>
+	
+	<!-- Dark Mode Toggle Button -->
+	<button class="theme-toggle" aria-label="Toggle Dark Mode">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+			<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+		</svg>
+	</button>
+	
+	<!-- Scroll to Top Button -->
+	<button class="scroll-to-top" aria-label="Scroll to Top">↑</button>
+	
 	<footer>
 		<p>© 2026 Vilácio Cordeiro Júnior</p>
 	</footer>
+	
+	<script src="../src/js/script.js"></script>
 </body>
 </html>

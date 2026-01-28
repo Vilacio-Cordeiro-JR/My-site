@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>About Me - My Curriculum</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../src/css/style.css">
 </head>
 <body>
 	<header>
-		<img src="Images/ProfileImage.png" alt="Profile Picture">
+		<img src="../assets/images/ProfileImage.png" alt="Profile Picture">
 		<h1>Vilácio Cordeiro Júnior</h1>
 		<address>CordeiroJuniorVilacio@gmail.com | (13) 9 9677-8306 | <span id="age"></span> anos | Bertioga - SP - Brasil</address>
 	</header>
@@ -34,7 +34,7 @@
 		<h2>Sobre Mim</h2>
 		
 		<section>
-			<img src="Images/SobreMim/Eu.jpeg" alt="Vilácio Cordeiro Júnior" style="float: left; margin: 0 var(--spacing-lg) var(--spacing-md) 0; max-width: 240px; border-radius: var(--radius-md); box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+			<img src="../assets/images/SobreMim/Eu.jpeg" alt="Vilácio Cordeiro Júnior" style="float: left; margin: 0 var(--spacing-lg) var(--spacing-md) 0; max-width: 240px; border-radius: var(--radius-md); box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 			
 			<p style="text-align: justify; text-indent: 2rem; margin-bottom: var(--spacing-md);">Desde muito cedo, sempre fui fascinado por entender como as coisas funcionam. Gostava de desmontar objetos, observar peças, imaginar mecanismos. Na infância, meu sonho era ser cientista — a curiosidade sempre foi parte de quem eu sou. Meus pais sempre tiveram computador em casa, e isso despertou ainda mais meu interesse pelas máquinas: eu queria saber o que havia dentro, como funcionavam, como tudo se conectava.</p>
 			
@@ -57,8 +57,20 @@
 			E espero, junto de muitas pessoas, construir um futuro brilhante e bem-sucedido.</p>
 		</section>
 	</main>
+	<!-- Dark Mode Toggle Button -->
+	<button class="theme-toggle" aria-label="Toggle Dark Mode">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+			<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+		</svg>
+	</button>
+	
+	<!-- Scroll to Top Button -->
+	<button class="scroll-to-top" aria-label="Scroll to Top">↑</button>
+	
 	<footer>
 		<p>© 2026 Vilácio Cordeiro Júnior</p>
 	</footer>
+	
+	<script src="../src/js/script.js"></script>
 </body>
 </html>

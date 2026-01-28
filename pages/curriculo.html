@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Currículo - Vilácio Cordeiro Júnior</title>
+	<link rel="stylesheet" href="../src/css/curriculo-print.css">
+</head>
+<body class="curriculo-page">
+	
+	<!-- Botões de Ação -->
+	<div class="action-buttons">
+		<button class="btn-print" onclick="window.print()">
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
+				<rect x="6" y="14" width="12" height="8"/>
+			</svg>
+			Imprimir / Salvar PDF
+		</button>
+		<a href="1-MainPage.html" class="btn-back-home btn-print">
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<path d="M19 12H5M12 19l-7-7 7-7"/>
+			</svg>
+			Voltar ao Site
+		</a>
+	</div>
+
+	<!-- Conteúdo do Currículo -->
+	<div class="curriculo-container">
+		
+		<!-- Cabeçalho -->
+		<div class="curriculo-header">
+			<h1>Vilácio Cordeiro Júnior</h1>
+			<div class="contact-info">
+				CordeiroJuniorVilacio@gmail.com | (13) 9 9677-8306<br>
+				<span id="age"></span> anos | Bertioga - SP - Brasil
+			</div>
+		</div>
+
+		<!-- Objetivo Profissional -->
+		<div class="curriculo-section">
+			<h2>Objetivo Profissional</h2>
+			<p>Atuar na área de Tecnologia da Informação, com foco em desenvolvimento de sistemas e análise de dados, aplicando e aprimorando meus conhecimentos técnicos para contribuir com resultados eficazes.</p>
+		</div>
+
+		<!-- Formação Acadêmica -->
+		<div class="curriculo-section">
+			<h2>Formação Acadêmica</h2>
+			<h3>Ensino Superior – Cursando</h3>
+			<div class="item-details">
+				<p><strong>Curso:</strong> Bacharelado em Sistemas da Informação</p>
+				<p><strong>Instituição:</strong> Unisanta</p>
+				<p><strong>Período:</strong> 2025 - Previsão de conclusão: 2029</p>
+			</div>
+		</div>
+
+		<!-- Experiências Profissionais -->
+		<div class="curriculo-section">
+			<h2>Experiências Profissionais</h2>
+			
+			<h3>Auxiliar de Escritório</h3>
+			<div class="item-details">
+				<p><strong>Empresa:</strong> RADCOM Alarmes</p>
+				<p><strong>Período:</strong> 21/10/2025 - 05/12/2025</p>
+				<p><strong>Atividades:</strong> Confecção de contratos, atendimento ao cliente, confecção de material impresso como adesivos e afins, e elaboração de propostas de vendas.</p>
+			</div>
+
+			<h3>Agente de Segurança - Jovem Aprendiz</h3>
+			<div class="item-details">
+				<p><strong>Empresa:</strong> Associação dos Amigos da Riviera – Campb</p>
+				<p><strong>Período:</strong> 08/05/2025 - 20/10/2025</p>
+				<p><strong>Atividades:</strong> Patrulhamento, vigilância e orientação em área costeira.</p>
+			</div>
+		</div>
+
+		<!-- Cursos Extracurriculares -->
+		<div class="curriculo-section">
+			<h2>Cursos Extracurriculares</h2>
+			<ul>
+				<li>Pacote Office Básico</li>
+				<li>Python Impressionador – Hashtag Treinamentos</li>
+				<li>Inglês Intermediário - Conversação avançada, leitura e escrita intermediária</li>
+			</ul>
+		</div>
+
+		<!-- Qualificação Profissional -->
+		<div class="curriculo-section">
+			<h2>Qualificação Profissional</h2>
+			<ul>
+				<li>Pacote Office básico</li>
+				<li>Design e Edição: Adobe Photoshop, Canva, Figma</li>
+				<li>Manutenção de computadores: Montagem e manutenção básica</li>
+				<li>Banco de dados: Conhecimento básico em SQL e NoSQL</li>
+				<li>Desenvolvimento Back-end: Noções em Python, Java, C#, JavaScript e Node.js</li>
+				<li>Capacidade de comunicação em equipamento de rádio</li>
+			</ul>
+		</div>
+
+		<!-- Skills -->
+		<div class="curriculo-section">
+			<h2>Competências</h2>
+			<div class="skills-container">
+				<div class="skills-column">
+					<h3>Soft Skills</h3>
+					<ul>
+						<li>Adaptabilidade</li>
+						<li>Comprometimento</li>
+						<li>Comunicação eficaz</li>
+						<li>Trabalho em equipe</li>
+						<li>Proatividade</li>
+					</ul>
+				</div>
+				<div class="skills-column">
+					<h3>Hard Skills</h3>
+					<ul>
+						<li>Pacote Office</li>
+						<li>Python</li>
+						<li>SQL e NoSQL</li>
+						<li>Java, C#, JavaScript, Node.js</li>
+						<li>Design: Photoshop, Canva, Figma</li>
+						<li>Manutenção de computadores</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Disponibilidade -->
+		<div class="curriculo-section">
+			<h2>Disponibilidade</h2>
+			<p>Período: Manhã e Tarde</p>
+		</div>
+
+	</div>
+
+	<script>
+		// Calcular idade
+		const birthDate = new Date('2006-11-14');
+		const today = new Date();
+		let age = today.getFullYear() - birthDate.getFullYear();
+		const monthDiff = today.getMonth() - birthDate.getMonth();
+		if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+			age--;
+		}
+		document.getElementById('age').textContent = age;
+	</script>
+
+</body>
+</html>
