@@ -1654,6 +1654,43 @@ html[data-theme="dark"] .theme-toggle::before {
 }
 
 /* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 900px) {
+	nav {
+		flex-wrap: wrap;
+	}
+
+	.nav-links {
+		width: 100%;
+		justify-content: flex-start;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		flex-wrap: nowrap;
+		padding-right: 0;
+	}
+
+	.nav-links a {
+		flex: 0 0 auto;
+	}
+
+	.nav-short {
+		display: inline;
+	}
+
+	.nav-full {
+		display: none;
+	}
+
+	nav a.active .nav-full,
+	nav a:focus-visible .nav-full {
+		display: inline;
+	}
+
+	nav a.active .nav-short,
+	nav a:focus-visible .nav-short {
+		display: none;
+	}
+}
+
 @media (max-width: 768px) {
 	:root {
 		--spacing-sm: 0.6rem;
@@ -1770,23 +1807,6 @@ html[data-theme="dark"] .theme-toggle::before {
 		padding: 0.2rem 0.3rem;
 	}
 
-	.nav-short {
-		display: inline;
-	}
-
-	.nav-full {
-		display: none;
-	}
-
-	nav a.active .nav-full,
-	nav a:focus-visible .nav-full {
-		display: inline;
-	}
-
-	nav a.active .nav-short,
-	nav a:focus-visible .nav-short {
-		display: none;
-	}
 }
 
 /* H2 sections styling */
