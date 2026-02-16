@@ -1,176 +1,245 @@
-/* ========== CURRÍCULO - ESTILO ABNT PARA IMPRESSÃO ========== */
+/* ========== CURRICULO ATS - ESTILO PROFISSIONAL ========== */
 
-/* Estilos para visualização na tela */
 :root {
-	--abnt-font: 'Times New Roman', Times, serif;
-	--abnt-font-size: 12pt;
-	--abnt-line-height: 1.5;
-	--abnt-margin: 3cm 3cm 2cm 3cm;
-	--color-text: #000;
-	--color-bg: #fff;
+	--font-base: "Calibri", "Arial", "Helvetica", sans-serif;
+	--color-text: #111111;
+	--color-muted: #444444;
+	--color-border: #e8e8e8;
+	--color-section-bg: #f9f9f9;
+	--color-accent: #0066cc;
+	--color-bg: #ffffff;
+	--size-name: 21px;
+	--size-section: 14px;
+	--size-text: 11.5px;
+	--line-height: 1.2;
+}
+
+* {
+	box-sizing: border-box;
 }
 
 body.curriculo-page {
-	font-family: var(--abnt-font);
-	font-size: var(--abnt-font-size);
-	line-height: var(--abnt-line-height);
+	font-family: var(--font-base);
+	font-size: var(--size-text);
+	line-height: var(--line-height);
 	color: var(--color-text);
-	background: #f5f5f5;
+	background: var(--color-bg);
 	margin: 0;
 	padding: 0;
 }
 
-/* Container do currículo */
+/* Container do curriculo */
 .curriculo-container {
-	max-width: 21cm;
-	margin: 2rem auto;
-	background: white;
-	padding: 3cm 3cm 2cm 3cm;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	min-height: 29.7cm;
+	max-width: 900px;
+	margin: 24px auto;
+	background: #ffffff;
+	padding: 28px 32px;
+	border: 1px solid #eeeeee;
 }
 
-/* Cabeçalho do currículo */
+/* Cabecalho */
 .curriculo-header {
-	text-align: center;
-	margin-bottom: 2cm;
-	border-bottom: 2px solid #000;
-	padding-bottom: 0.5cm;
+	text-align: left;
+	margin-bottom: 12px;
+	padding-bottom: 10px;
+	border-bottom: 1.5px solid var(--color-border);
 }
 
 .curriculo-header h1 {
-	font-size: 16pt;
-	font-weight: bold;
-	text-transform: uppercase;
-	margin: 0 0 0.3cm 0;
-	letter-spacing: 1px;
+	font-size: var(--size-name);
+	font-weight: 700;
+	margin: 0 0 2px 0;
+	letter-spacing: -0.3px;
 }
 
-.curriculo-header .contact-info {
-	font-size: 11pt;
-	margin: 0.3cm 0 0 0;
-	line-height: 1.4;
+.headline {
+	font-size: 13px;
+	font-weight: 600;
+	margin: 0 0 4px 0;
+	color: var(--color-accent);
+}
+
+.contact-line {
+	font-size: 10.5px;
+	margin: 0;
+	color: var(--color-muted);
+	line-height: 1.3;
 }
 
 /* Botões de ação (não aparecem na impressão) */
 .action-buttons {
-	max-width: 21cm;
-	margin: 0 auto 1rem auto;
+	max-width: 900px;
+	margin: 0 auto 12px auto;
 	display: flex;
-	gap: 1rem;
+	gap: 12px;
 	justify-content: center;
-	padding: 1rem;
+	padding: 12px;
 }
 
 .btn-print,
 .btn-download {
-	padding: 0.8rem 2rem;
-	font-size: 14px;
+	padding: 0.65rem 1.4rem;
+	font-size: 13px;
 	font-weight: 600;
-	border: none;
-	border-radius: 8px;
+	border: 1px solid #cccccc;
+	border-radius: 6px;
 	cursor: pointer;
-	transition: all 0.3s;
-	display: flex;
+	transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+	display: inline-flex;
 	align-items: center;
-	gap: 0.5rem;
 	text-decoration: none;
-	color: white;
+	color: #111111;
+	background: #f6f6f6;
 }
 
 .btn-print {
-	background: linear-gradient(135deg, #004E89 0%, #00A8E8 100%);
-	box-shadow: 0 4px 15px rgba(0, 78, 137, 0.3);
+	background: #f6f6f6;
 }
 
 .btn-print:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 6px 20px rgba(0, 78, 137, 0.4);
+	background: #eeeeee;
+	border-color: #bdbdbd;
 }
 
 .btn-download {
-	background: linear-gradient(135deg, #FF6B35 0%, #FF8555 100%);
-	box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+	background: #f6f6f6;
 }
 
 .btn-download:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+	background: #eeeeee;
+	border-color: #bdbdbd;
 }
 
 .btn-back-home {
-	background: #666;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+	background: #f6f6f6;
 }
 
 .btn-back-home:hover {
-	background: #444;
-	transform: translateY(-2px);
+	background: #eeeeee;
+	border-color: #bdbdbd;
 }
 
 /* Seções do currículo */
 .curriculo-section {
-	margin-bottom: 1.5cm;
+	margin-bottom: 10px;
 }
 
 .curriculo-section h2 {
-	font-size: 14pt;
-	font-weight: bold;
+	font-size: 13px;
+	font-weight: 700;
 	text-transform: uppercase;
-	margin: 0 0 0.5cm 0;
-	border-bottom: 1px solid #000;
-	padding-bottom: 0.2cm;
-	letter-spacing: 0.5px;
+	margin: 0 0 5px 0;
+	border-bottom: 2px solid var(--color-accent);
+	padding-bottom: 3px;
+	letter-spacing: 0px;
+	color: var(--color-accent);
 }
 
 .curriculo-section h3 {
-	font-size: 12pt;
-	font-weight: bold;
-	margin: 0.5cm 0 0.2cm 0;
+	font-size: 11.5px;
+	font-weight: 700;
+	margin: 0 0 2px 0;
+	color: var(--color-text);
 }
 
 .curriculo-section p {
-	text-align: justify;
-	margin: 0.3cm 0;
+	margin: 0 0 4px 0;
+	font-size: 11px;
+	line-height: 1.25;
 }
 
 .curriculo-section ul {
-	margin: 0.3cm 0;
-	padding-left: 1.5cm;
+	margin: 3px 0 0 0;
+	padding-left: 16px;
 	list-style-type: disc;
 }
 
 .curriculo-section li {
-	margin: 0.2cm 0;
-	text-align: justify;
+	margin: 2px 0;
+	font-size: 11px;
+	line-height: 1.25;
 }
 
 /* Dados do item de experiência/formação */
-.item-details {
-	margin-left: 0.5cm;
-	margin-bottom: 0.5cm;
-}
-
-.item-details strong {
-	font-weight: bold;
-}
-
-/* Skills em duas colunas */
-.skills-container {
+.item-header {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 1cm;
-	margin-top: 0.5cm;
+	grid-template-columns: 1fr auto;
+	gap: 8px;
+	margin-bottom: 2px;
 }
 
-.skills-column h3 {
-	font-size: 12pt;
-	font-weight: bold;
-	margin-bottom: 0.3cm;
+.item-header .role {
+	font-weight: 700;
+	color: var(--color-text);
+	font-size: 11.5px;
+	grid-column: 1;
+	grid-row: 1;
 }
 
-.skills-column ul {
-	padding-left: 1cm;
+.item-header .company {
+	font-weight: 600;
+	font-size: 11px;
+	color: var(--color-muted);
+	grid-column: 1;
+	grid-row: 2;
+}
+
+.item-header .period {
+	font-size: 10.5px;
+	color: var(--color-muted);
+	grid-column: 2;
+	grid-row: 1 / 3;
+	text-align: right;
+	white-space: nowrap;
+	font-weight: 600;
+}
+
+.experience-item,
+.education-item {
+	margin-bottom: 6px;
+	padding-bottom: 5px;
+	border-bottom: 0.5px dotted var(--color-border);
+}
+
+.experience-item:last-child,
+.education-item:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.skills-group {
+	margin-bottom: 6px;
+	display: block;
+	width: 100%;
+	margin-right: 0;
+}
+
+.skills-group:nth-child(even) {
+	margin-right: 0;
+}
+
+.skills-group h3 {
+	margin: 0 0 2px 0;
+	font-size: 11px;
+	color: var(--color-accent);
+}
+
+.skills-group p {
+	font-size: 10.5px;
+	line-height: 1.25;
+	margin: 0;
+}
+
+.project-item {
+	margin-bottom: 8px;
+	padding-bottom: 6px;
+	border-bottom: 0.5px dotted var(--color-border);
+}
+
+.project-item:last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-bottom: none;
 }
 
 /* ========== ESTILOS PARA IMPRESSÃO ========== */
@@ -184,9 +253,8 @@ body.curriculo-page {
 	.curriculo-container {
 		max-width: 100%;
 		margin: 0;
-		padding: 3cm 3cm 2cm 3cm;
-		box-shadow: none;
-		page-break-after: avoid;
+		padding: 14mm 14mm 10mm 14mm;
+		border: none;
 	}
 
 	/* Esconder elementos que não devem ser impressos */
@@ -201,7 +269,11 @@ body.curriculo-page {
 	/* Ajustes de página */
 	@page {
 		size: A4;
-		margin: 0;
+		margin: 20mm 14mm 10mm 14mm;
+	}
+
+	@page :first {
+		margin: 14mm 14mm 10mm 14mm;
 	}
 
 	/* Evitar quebras de página inadequadas */
@@ -223,24 +295,20 @@ body.curriculo-page {
 	* {
 		color: #000 !important;
 		background: transparent !important;
+		box-shadow: none !important;
 	}
 
 	.curriculo-container {
 		background: white !important;
-	}
-
-	/* Bordas em preto sólido */
-	.curriculo-header,
-	.curriculo-section h2 {
-		border-color: #000 !important;
+		border: none !important;
 	}
 }
 
 /* ========== RESPONSIVE ========== */
 @media screen and (max-width: 768px) {
 	.curriculo-container {
-		margin: 1rem;
-		padding: 1.5cm 1cm;
+		margin: 12px;
+		padding: 16px 14px;
 		max-width: 100%;
 	}
 
@@ -250,16 +318,28 @@ body.curriculo-page {
 		margin: 0.5rem;
 	}
 
-	.skills-container {
-		grid-template-columns: 1fr;
-		gap: 0.5cm;
-	}
-
 	.curriculo-header h1 {
-		font-size: 14pt;
+		font-size: 18px;
 	}
 
 	.curriculo-section h2 {
-		font-size: 12pt;
+		font-size: 12px;
+	}
+
+	.item-header {
+		grid-template-columns: 1fr;
+	}
+
+	.item-header .period {
+		grid-column: 1;
+		grid-row: auto;
+		text-align: left;
+		white-space: normal;
+	}
+
+	.skills-group {
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 8px;
 	}
 }

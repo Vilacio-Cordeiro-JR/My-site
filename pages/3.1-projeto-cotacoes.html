@@ -7,29 +7,9 @@
 	<link rel="stylesheet" href="../src/css/style.css?v=2.0">
 </head>
 <body>
-	<header>
-		<img src="../assets/images/ProfileImage.png" alt="Profile Picture">
-		<h1>Vilácio Cordeiro Júnior</h1>
-		<address>CordeiroJuniorVilacio@gmail.com | (13) 9 9677-8306 | <span id="age"></span> anos | Bertioga - SP - Brasil</address>
+	<header class="project-header">
+		<a href="../index.html#projetos" class="back-link">← Voltar para o site</a>
 	</header>
-	<script>
-		const birthDate = new Date('2006-11-14');
-		const today = new Date();
-		let age = today.getFullYear() - birthDate.getFullYear();
-		const monthDiff = today.getMonth() - birthDate.getMonth();
-		if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-			age--;
-		}
-		document.getElementById('age').textContent = age;
-	</script>
-	<nav>
-		<a href="1-MainPage.html">Principal</a>
-		<a href="2-academic.html">Formação Acadêmica</a>
-		<a href="3-projects.html" class="active">Projetos</a>
-		<a href="4-about.html">Sobre mim</a>
-		<a href="5-enterprises.html">Empresas</a>
-		<a href="6-contact.html">Contato</a>
-	</nav>
 	<main>
 		<div class="project-detail">
 			<h2><a href="#" class="section-title">Sistema de Orçamentos RadCom</a></h2>
@@ -92,7 +72,7 @@
 			<section class="project-links">
 				<h3><a href="#" class="project-subtitle">Links</a></h3>
 				<a href="https://github.com/Vilacio-Cordeiro-JR/Projeto-Radcom-Cota-es" target="_blank" class="btn-github">Ver no GitHub</a>
-				<a href="3-projects.html" class="btn-back">Voltar aos Projetos</a>
+				<a href="../index.html#projetos" class="btn-back">Voltar aos Projetos</a>
 			</section>
 		</div>
 	</main>

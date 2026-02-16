@@ -11,16 +11,9 @@
 	<!-- Botões de Ação -->
 	<div class="action-buttons">
 		<button class="btn-print" onclick="window.print()">
-			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-				<path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
-				<rect x="6" y="14" width="12" height="8"/>
-			</svg>
 			Imprimir / Salvar PDF
 		</button>
 		<a href="1-MainPage.html" class="btn-back-home btn-print">
-			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-				<path d="M19 12H5M12 19l-7-7 7-7"/>
-			</svg>
 			Voltar ao Site
 		</a>
 	</div>
@@ -28,121 +21,141 @@
 	<!-- Conteúdo do Currículo -->
 	<div class="curriculo-container">
 		
-		<!-- Cabeçalho -->
-		<div class="curriculo-header">
+		<!-- Header -->
+		<header class="curriculo-header">
 			<h1>Vilácio Cordeiro Júnior</h1>
-			<div class="contact-info">
-				CordeiroJuniorVilacio@gmail.com | (13) 9 9677-8306<br>
-				<span id="age"></span> anos | Bertioga - SP - Brasil
+			<p class="headline">Desenvolvedor Back-end em Formacao | Python | SQL</p>
+			<p class="contact-line">(13) 9 9677-8306 | CordeiroJuniorVilacio@gmail.com | Bertioga - SP | LinkedIn: <a href="https://www.linkedin.com/in/vil%C3%A1cio-cordeiro-j%C3%BAnior" target="_blank" rel="noopener">linkedin.com/in/vilácio-cordeiro-júnior</a></p>
+		</header>
+
+		<!-- Resumo Profissional -->
+		<section class="curriculo-section">
+			<h2>Resumo profissional</h2>
+			<p>Estudante de Sistemas de Informacao com foco em desenvolvimento back-end e banco de dados. Conhecimentos em Python, SQL, logica de programacao e fundamentos de desenvolvimento back-end. Experiencia com rotinas administrativas e atendimento ao cliente. Busco oportunidade em TI para aplicar habilidades tecnicas e contribuir com solucoes eficientes.</p>
+		</section>
+
+		<section class="curriculo-section">
+			<h2>Projetos</h2>
+			<div class="project-item">
+				<h3>Sistema de Orcamentos RadCom (Node.js, Express, React, PostgreSQL/SQLite) - Concluido</h3>
+				<p>Sistema web para gestao de orcamentos com autenticacao e controle de acesso.</p>
+				<ul>
+					<li>Desenvolvimento back-end e front-end.</li>
+					<li>Integracao com banco relacional.</li>
+					<li>Hierarquia de usuarios e relatorios.</li>
+					<li>GitHub: <a href="https://github.com/Vilacio-Cordeiro-Jr/Projeto-Radcom-Costa" target="_blank" rel="noopener">github.com/Vilacio-Cordeiro-Jr/Projeto-Radcom-Costa</a></li>
+				</ul>
 			</div>
-		</div>
-
-		<!-- Objetivo Profissional -->
-		<div class="curriculo-section">
-			<h2>Objetivo Profissional</h2>
-			<p>Atuar na área de Tecnologia da Informação, com foco em desenvolvimento de sistemas e análise de dados, aplicando e aprimorando meus conhecimentos técnicos para contribuir com resultados eficazes.</p>
-		</div>
-
-		<!-- Formação Acadêmica -->
-		<div class="curriculo-section">
-			<h2>Formação Acadêmica</h2>
-			<h3>Ensino Superior – Cursando</h3>
-			<div class="item-details">
-				<p><strong>Curso:</strong> Bacharelado em Sistemas da Informação</p>
-				<p><strong>Instituição:</strong> Unisanta</p>
-				<p><strong>Período:</strong> 2025 - Previsão de conclusão: 2029</p>
+			<div class="project-item">
+				<h3>projeto-jarvis (Python, CLI) - Projeto em desenvolvimento continuo</h3>
+				<p>Assistente virtual experimental para automatizar rotinas.</p>
+				<ul>
+					<li>Desenvolvimento de comandos com organizacao modular.</li>
+					<li>Automacao de tarefas e execucao de comandos rapidos.</li>
+					<li>Base extensivel para novas integracoes.</li>
+					<li>GitHub: <a href="https://github.com/Vilacio-Cordeiro-JR/projeto-jarvis" target="_blank" rel="noopener">github.com/Vilacio-Cordeiro-JR/projeto-jarvis</a></li>
+				</ul>
 			</div>
-		</div>
-
-		<!-- Experiências Profissionais -->
-		<div class="curriculo-section">
-			<h2>Experiências Profissionais</h2>
-			
-			<h3>Auxiliar de Escritório</h3>
-			<div class="item-details">
-				<p><strong>Empresa:</strong> RADCOM Alarmes</p>
-				<p><strong>Período:</strong> 21/10/2025 - 05/12/2025</p>
-				<p><strong>Atividades:</strong> Confecção de contratos, atendimento ao cliente, confecção de material impresso como adesivos e afins, e elaboração de propostas de vendas.</p>
+			<div class="project-item">
+				<h3>Projeto_anaminese (HTML, CSS, JavaScript) - Concluido</h3>
+				<p>Formulario digital para cadastro e organizacao de dados de atendimento.</p>
+				<ul>
+					<li>Desenvolvimento de formulario com validacoes basicas.</li>
+					<li>Padronizacao de dados e organizacao por secoes.</li>
+					<li>Base pronta para exportacao ou integracoes futuras.</li>
+					<li>GitHub: <a href="https://github.com/Vilacio-Cordeiro-JR/Projeto_anaminese" target="_blank" rel="noopener">github.com/Vilacio-Cordeiro-JR/Projeto_anaminese</a></li>
+				</ul>
 			</div>
+		</section>
 
-			<h3>Agente de Segurança - Jovem Aprendiz</h3>
-			<div class="item-details">
-				<p><strong>Empresa:</strong> Associação dos Amigos da Riviera – Campb</p>
-				<p><strong>Período:</strong> 08/05/2025 - 20/10/2025</p>
-				<p><strong>Atividades:</strong> Patrulhamento, vigilância e orientação em área costeira.</p>
-			</div>
-		</div>
+		<!-- Experiencia Profissional -->
+		<section class="curriculo-section">
+			<h2>Experiencia profissional</h2>
 
-		<!-- Cursos Extracurriculares -->
-		<div class="curriculo-section">
-			<h2>Cursos Extracurriculares</h2>
-			<ul>
-				<li>Pacote Office Básico</li>
-				<li>Python Impressionador – Hashtag Treinamentos</li>
-				<li>Inglês Intermediário - Conversação avançada, leitura e escrita intermediária</li>
-			</ul>
-		</div>
-
-		<!-- Qualificação Profissional -->
-		<div class="curriculo-section">
-			<h2>Qualificação Profissional</h2>
-			<ul>
-				<li>Pacote Office básico</li>
-				<li>Design e Edição: Adobe Photoshop, Canva, Figma</li>
-				<li>Manutenção de computadores: Montagem e manutenção básica</li>
-				<li>Banco de dados: Conhecimento básico em SQL e NoSQL</li>
-				<li>Desenvolvimento Back-end: Noções em Python, Java, C#, JavaScript e Node.js</li>
-				<li>Capacidade de comunicação em equipamento de rádio</li>
-			</ul>
-		</div>
-
-		<!-- Skills -->
-		<div class="curriculo-section">
-			<h2>Competências</h2>
-			<div class="skills-container">
-				<div class="skills-column">
-					<h3>Soft Skills</h3>
-					<ul>
-						<li>Adaptabilidade</li>
-						<li>Comprometimento</li>
-						<li>Comunicação eficaz</li>
-						<li>Trabalho em equipe</li>
-						<li>Proatividade</li>
-					</ul>
+			<div class="experience-item">
+				<div class="item-header">
+					<span class="role">Auxiliar de Escritorio</span>
+					<span class="company">RADCOM Alarmes</span>
+					<span class="period">Out/2025 - Dez/2025</span>
 				</div>
-				<div class="skills-column">
-					<h3>Hard Skills</h3>
-					<ul>
-						<li>Pacote Office</li>
-						<li>Python</li>
-						<li>SQL e NoSQL</li>
-						<li>Java, C#, JavaScript, Node.js</li>
-						<li>Design: Photoshop, Canva, Figma</li>
-						<li>Manutenção de computadores</li>
-					</ul>
+				<ul>
+					<li>Elaboracao de contratos e propostas comerciais com organizacao e padronizacao.</li>
+					<li>Atendimento direto ao cliente, garantindo suporte e resolucao eficiente de demandas.</li>
+					<li>Producao de materiais impressos (adesivos e documentos institucionais).</li>
+					<li>Apoio administrativo geral e controle de documentos.</li>
+				</ul>
+			</div>
+
+			<div class="experience-item">
+				<div class="item-header">
+					<span class="role">Agente de Seguranca - Jovem Aprendiz</span>
+					<span class="company">Associacao dos Amigos da Riviera - CAMPB</span>
+					<span class="period">Mai/2025 - Out/2025</span>
+				</div>
+				<ul>
+					<li>Patrulhamento preventivo em area costeira, seguindo protocolos de seguranca.</li>
+					<li>Orientacao ao publico com foco em seguranca e boa comunicacao.</li>
+					<li>Comunicacao via radio operacional e registro de ocorrencias.</li>
+					<li>Atuacao com responsabilidade e disciplina em ambiente supervisionado.</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Formacao -->
+		<section class="curriculo-section">
+			<h2>Formacao academica</h2>
+			<div class="education-item">
+				<div class="item-header">
+					<span class="role">Bacharelado em Sistemas de Informacao</span>
+					<span class="company">Universidade Santa Cecilia (UNISANTA)</span>
+					<span class="period">Inicio: 2025 | Previsao de conclusao: 2029</span>
 				</div>
 			</div>
-		</div>
+		</section>
 
-		<!-- Disponibilidade -->
-		<div class="curriculo-section">
-			<h2>Disponibilidade</h2>
-			<p>Período: Manhã e Tarde</p>
-		</div>
+		<!-- Habilidades -->
+		<section class="curriculo-section">
+			<h2>Habilidades tecnicas</h2>
+			<div class="skills-group">
+				<h3>Linguagens</h3>
+				<p>Python, Java, C#, JavaScript, Node.js.</p>
+			</div>
+			<div class="skills-group">
+				<h3>Banco de dados</h3>
+				<p>SQL, NoSQL.</p>
+			</div>
+			<div class="skills-group">
+				<h3>Ferramentas</h3>
+				<p>Pacote Office, Figma, Canva.</p>
+			</div>
+			<div class="skills-group">
+				<h3>Infraestrutura</h3>
+				<p>Montagem e manutencao basica de computadores.</p>
+			</div>
+		</section>
+
+		<!-- Cursos e Certificacoes -->
+		<section class="curriculo-section">
+			<h2>Cursos e qualificacoes</h2>
+			<ul>
+				<li>Python Impressionador - Hashtag Treinamentos</li>
+				<li>Pacote Office</li>
+				<li>Ingles Intermediario (conversacao avancada, leitura e escrita intermediaria)</li>
+			</ul>
+		</section>
+
+		<section class="curriculo-section">
+			<h2>Competencias comportamentais</h2>
+			<ul>
+				<li>Adaptabilidade</li>
+				<li>Comunicacao eficaz</li>
+				<li>Trabalho em equipe</li>
+				<li>Proatividade</li>
+				<li>Comprometimento</li>
+			</ul>
+		</section>
 
 	</div>
-
-	<script>
-		// Calcular idade
-		const birthDate = new Date('2006-11-14');
-		const today = new Date();
-		let age = today.getFullYear() - birthDate.getFullYear();
-		const monthDiff = today.getMonth() - birthDate.getMonth();
-		if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-			age--;
-		}
-		document.getElementById('age').textContent = age;
-	</script>
 
 </body>
 </html>

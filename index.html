@@ -3,82 +3,326 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="refresh" content="0; url=pages/1-MainPage.html">
 	<title>Vilácio Cordeiro Júnior</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="src/css/style.css?v=2.0">
 </head>
 <body>
-	<header>
-		<img src="assets/images/ProfileImage.png" alt="Profile Picture">
-		<h1>Vilácio Cordeiro Júnior</h1>
-		<address><span id="age"></span> anos | CordeiroJuniorVilacio@gmail.com | (13) 9 9677-8306 | Bertioga - SP - Brasil</address>
-	</header>
-	<script>
-		const birthDate = new Date('2006-11-14');
-		const today = new Date();
-		let age = today.getFullYear() - birthDate.getFullYear();
-		const monthDiff = today.getMonth() - birthDate.getMonth();
-		if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-			age--;
-		}
-		document.getElementById('age').textContent = age;
-	</script>
 	<nav>
-		<a href="pages/1-MainPage.html" class="active">Principal</a>
-		<a href="pages/2-academic.html">Formação Acadêmica</a>
-		<a href="pages/3-projects.html">Projetos</a>
-		<a href="pages/4-about.html">Sobre mim</a>
-		<a href="pages/5-enterprises.html">Empresas</a>
-		<a href="pages/6-contact.html">Contato</a>
+		<a class="nav-logo" href="#inicio">Vilácio</a>
+		<div class="nav-links">
+			<a href="#inicio"><span class="nav-short">pr</span><span class="nav-full" data-i18n="nav.principal">Principal</span></a>
+			<a href="#formacao"><span class="nav-short">fa</span><span class="nav-full" data-i18n="nav.formacao">Formação Acadêmica</span></a>
+			<a href="#projetos"><span class="nav-short">pj</span><span class="nav-full" data-i18n="nav.projetos">Projetos</span></a>
+			<a href="#sobre"><span class="nav-short">sm</span><span class="nav-full" data-i18n="nav.sobre">Sobre mim</span></a>
+			<a href="#empresas"><span class="nav-short">em</span><span class="nav-full" data-i18n="nav.empresas">Empresas</span></a>
+			<a href="#contato"><span class="nav-short">ct</span><span class="nav-full" data-i18n="nav.contato">Contato</span></a>
+		</div>
 	</nav>
 	<main>
-		<div class="welcome-section">
-			<h2>Bem-vindo ao meu site!</h2>
-			<p>Sou um profissional da área de tecnologia com atuação em design e conhecimentos em desenvolvimento, análise de dados e rotinas de escritório. Trabalho com foco em soluções funcionais, organização da informação e boa apresentação visual, buscando sempre clareza e eficiência nos projetos em que atuo.</p>
-			<p>Tenho facilidade em transitar entre diferentes áreas, o que me permite compreender demandas técnicas e operacionais de forma integrada. Meu interesse está em colaborar de maneira prática, contribuir para o bom andamento dos projetos e evoluir continuamente por meio da experiência e do aprendizado.</p>
-			<p>No botão abaixo, você pode conferir o meu currículo.</p>
-			<a href="pages/curriculo.html" target="_blank" class="btn-curriculum">Ver Currículo Completo</a>
-		</div>
+		<section id="inicio" class="hero">
+			<div class="hero-content">
+				<p class="hero-eyebrow" data-i18n="hero.greeting">Hello, eu sou</p>
+				<h1>Vilácio Cordeiro Júnior</h1>
+				<p class="hero-title" data-i18n="hero.subtitle">Designer e profissional de tecnologia</p>
+				<p class="hero-summary" data-i18n="hero.summary">Atuo com design, desenvolvimento e análise de dados. Gosto de transformar ideias em soluções funcionais, organizadas e visuais, sempre buscando clareza, eficiência e evolução contínua.</p>
+				<div class="hero-actions">
+					<a href="#projetos" class="btn-primary" data-i18n="hero.btn-projects">Ver trabalhos</a>
+					<a href="#contato" class="btn-secondary" data-i18n="hero.btn-contact">Fale comigo</a>
+				</div>
+				<div class="hero-links">
+					<a href="pages/curriculo.html" target="_blank" data-i18n="hero.curriculum">Abrir currículo completo</a>
+					<a href="mailto:CordeiroJuniorVilacio@gmail.com">CordeiroJuniorVilacio@gmail.com</a>
+				</div>
+			</div>
+			<div class="hero-card">
+				<p class="hero-card-title" data-i18n="hero.card-title">Resumo rápido</p>
+				<p class="hero-card-lead" data-i18n="hero.card-lead">Perfil focado em design, desenvolvimento e organização da informação para criar soluções claras e funcionais.</p>
+				<ul>
+				<li data-i18n="hero.card-skill-1">Design visual com padronização e consistência.</li>
+				<li data-i18n="hero.card-skill-2">Desenvolvimento web com HTML, CSS e JavaScript.</li>
+				<li data-i18n="hero.card-skill-3">Organização de conteudos e arquitetura de informacao.</li>
+				<li data-i18n="hero.card-skill-4">Olhar analitico para dados e processos.</li>
+				<li data-i18n="hero.card-skill-5">Experiencia com projetos locais e entregas reais.</li>
+				<li data-i18n="hero.card-skill-6">Busca constante por evolucao tecnica e criativa.</li>
+				</ul>
+			</div>
+		</section>
 
-		<!-- Posts Section -->
 		<section class="posts-section">
-			<h2>Últimas Atualizações</h2>
-			
+			<h2 data-i18n="posts.title">Últimas atualizações</h2>
 			<article class="post">
 				<div class="post-segment-1">
-					<h3 class="post-title">Título do Post</h3>
+					<h3 class="post-title" data-i18n="posts.post-title">Criando, aprendendo e evoluindo</h3>
 				</div>
-				
 				<div class="post-segment-2">
-					<img src="assets/images/post-image.jpg" alt="Imagem do Post" class="post-image">
-					<p class="post-description">
-						Esta é a descrição do post. Aqui você pode escrever sobre novidades, conquistas, 
-						projetos recentes ou qualquer informação relevante que deseja compartilhar. 
-						O texto fica ao lado da imagem para uma melhor visualização.
-					</p>
+					<img src="assets/images/Posts/Logo Emrpesa.png" alt="Imagem do Post" class="post-image">
+				<p class="post-description" data-i18n="posts.post-description">Sou um profissional em início de carreira na área de tecnologia, com foco em design e desenvolvimento de software. Atualmente curso faculdade na área e venho construindo minha experiência por meio de estudos, projetos e aprendizado contínuo. Busco oportunidades para ingressar no mercado, aprimorar minhas habilidades e evoluir profissionalmente, sempre unindo criatividade, organização e tecnologia no desenvolvimento de soluções.</p>
 				</div>
-				
 				<div class="post-segment-3">
 					<span class="post-date">08 de Janeiro, 2026</span>
 				</div>
 			</article>
 		</section>
+
+		<section id="formacao">
+			<h2 data-i18n="section.formacao">Formação acadêmica</h2>
+			<div class="carousel" aria-label="Formação acadêmica">
+				<button class="carousel-button prev" type="button" aria-label="Ver anterior" data-i18n-aria-label="aria.carousel-prev">‹</button>
+				<div class="carousel-track" data-carousel-track="formacao">
+					<div class="carousel-item">
+						<article class="post">
+							<div class="post-segment-1">
+								<h3 class="post-title" data-i18n="formation.course-1-title">Python Impressionador</h3>
+							</div>
+							<div class="post-segment-2">
+								<img src="assets/images/Academic_formation/hashtag.jpg" alt="Logo da Instituição" class="post-image">
+								<ul class="course-details">
+										<li><strong>Curso:</strong> <span data-i18n="formation.course-1-course">Curso Python Impressionador</span></li>
+										<li><strong>Instituição:</strong> <span data-i18n="formation.course-1-institution">Hashtag Treinamentos</span></li>
+										<li><strong>Início:</strong> <span data-i18n="formation.course-1-start">2023</span></li>
+										<li><strong>Duração:</strong> <span data-i18n="formation.course-1-duration">60 horas</span></li>
+								</ul>
+							</div>
+							<div class="post-segment-3">
+									<span class="post-date" data-i18n="formation.course-1-date">Concluído 2024</span>
+							</div>
+						</article>
+					</div>
+					<div class="carousel-item">
+						<article class="post">
+							<div class="post-segment-1">
+								<h3 class="post-title" data-i18n="formation.course-2-title">Bacharelado em Sistemas de Informação</h3>
+							</div>
+							<div class="post-segment-2">
+								<img src="assets/images/Academic_formation/Unisanta.png" alt="Logo da Instituição" class="post-image">
+								<ul class="course-details">
+										<li><strong>Curso:</strong> <span data-i18n="formation.course-2-course">Bacharelado em Sistemas de Informação</span></li>
+										<li><strong>Instituição:</strong> <span data-i18n="formation.course-2-institution">Universidade Santa Cecília</span></li>
+										<li><strong>Início:</strong> <span data-i18n="formation.course-2-start">2025</span></li>
+										<li><strong>Duração:</strong> <span data-i18n="formation.course-2-duration">4 anos</span></li>
+								</ul>
+							</div>
+							<div class="post-segment-3">
+									<span class="post-date" data-i18n="formation.course-2-date">Concluído (Previsão: 2029)</span>
+							</div>
+						</article>
+					</div>
+				</div>
+				<button class="carousel-button next" type="button" aria-label="Ver próximo">›</button>
+			</div>
+		</section>
+
+		<section id="projetos">
+			<h2 data-i18n="section.projetos">Projetos</h2>
+			<div class="carousel" aria-label="Projetos">
+				<button class="carousel-button prev" type="button" aria-label="Ver anterior" data-i18n-aria-label="aria.carousel-prev">‹</button>
+				<div class="carousel-track" data-carousel-track="projetos">
+					<div class="carousel-item">
+						<div class="project-card">
+						<h3><a href="pages/3.1-projeto-cotacoes.html" class="project-link" data-i18n="project.1-title">Sistema de Orçamentos RadCom</a></h3>
+						<p class="project-description" data-i18n="project.1-description">Sistema completo de gestão de orçamentos com autenticação, multi-sede e relatórios de vendas. Desenvolvido com arquitetura full-stack moderna para controle eficiente de vendas e permissões hierárquicas.</p>
+							<div class="project-tech">
+								<span class="tech-badge">React</span>
+								<span class="tech-badge">Node.js</span>
+								<span class="tech-badge">PostgreSQL</span>
+								<span class="tech-badge">Express</span>
+							</div>
+							<a href="pages/3.1-projeto-cotacoes.html" class="btn-see-more" data-i18n="project.1-details">Ver detalhes</a>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="project-card">
+						<h3><a href="pages/3.2-my-site.html" class="project-link" data-i18n="project.2-title">My-site - Portfólio Profissional</a></h3>
+						<p class="project-description" data-i18n="project.2-description">Site pessoal desenvolvido com HTML5, CSS3 e JavaScript vanilla. Apresenta currículo interativo, projetos, formação académica e sistema de posts com animações dinâmicas e design responsivo.</p>
+							<div class="project-tech">
+								<span class="tech-badge">HTML5</span>
+								<span class="tech-badge">CSS3</span>
+								<span class="tech-badge">JavaScript</span>
+								<span class="tech-badge">Git</span>
+							</div>
+							<a href="pages/3.2-my-site.html" class="btn-see-more" data-i18n="project.2-details">Ver detalhes</a>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="project-card">
+						<h3><a href="pages/3.3-projeto-jarvis.html" class="project-link" data-i18n="project.3-title">projeto-jarvis</a></h3>
+						<p class="project-description" data-i18n="project.3-description">Assistente virtual experimental para automatizar tarefas e responder comandos de forma objetiva.</p>
+							<div class="project-tech">
+								<span class="tech-badge">Python</span>
+								<span class="tech-badge">Automacao</span>
+								<span class="tech-badge">CLI</span>
+								<span class="tech-badge">APIs</span>
+							</div>
+							<a href="pages/3.3-projeto-jarvis.html" class="btn-see-more" data-i18n="project.3-details">Ver detalhes</a>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="project-card">
+						<h3><a href="pages/3.4-projeto-anaminese.html" class="project-link" data-i18n="project.4-title">Projeto_anaminese</a></h3>
+						<p class="project-description" data-i18n="project.4-description">Formulario de anamnese digital para cadastro e organizacao de informacoes de atendimento.</p>
+							<div class="project-tech">
+								<span class="tech-badge">HTML5</span>
+								<span class="tech-badge">CSS3</span>
+								<span class="tech-badge">JavaScript</span>
+								<span class="tech-badge">Formularios</span>
+							</div>
+							<a href="pages/3.4-projeto-anaminese.html" class="btn-see-more" data-i18n="project.4-details">Ver detalhes</a>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="project-card">
+						<h3><a href="pages/3.5-projeto-excursoes.html" class="project-link" data-i18n="project.5-title">projeto_sistema_excurs-es</a></h3>
+						<p class="project-description" data-i18n="project.5-description">Sistema de controle de excursões com cadastros, organizacao de participantes e acompanhamento de dados.</p>
+							<div class="project-tech">
+								<span class="tech-badge">Python</span>
+								<span class="tech-badge">CRUD</span>
+								<span class="tech-badge">Relatorios</span>
+								<span class="tech-badge">Organizacao</span>
+							</div>
+							<a href="pages/3.5-projeto-excursoes.html" class="btn-see-more" data-i18n="project.5-details">Ver detalhes</a>
+						</div>
+					</div>
+				</div>
+				<button class="carousel-button next" type="button" aria-label="Ver próximo" data-i18n-aria-label="aria.carousel-next">›</button>
+			</div>
+		</section>
+
+		<section id="sobre">
+			<h2 data-i18n="nav.sobre">Sobre mim</h2>
+			<img src="assets/images/SobreMim/Eu.jpeg" alt="Vilácio Cordeiro Júnior" style="float: left; margin: 0 var(--spacing-lg) var(--spacing-md) 0; max-width: 240px; border-radius: var(--radius-md); box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+			<p style="text-align: justify; text-indent: 2rem; margin-bottom: var(--spacing-md);" data-i18n="about.p1">Desde muito cedo, sempre fui fascinado por entender como as coisas funcionam. Gostava de desmontar objetos, observar peças, imaginar mecanismos. Na infância, meu sonho era ser cientista — a curiosidade sempre foi parte de quem eu sou. Meus pais sempre tiveram computador em casa, e isso despertou ainda mais meu interesse pelas máquinas: eu queria saber o que havia dentro, como funcionavam, como tudo se conectava.</p>
+			<p style="text-align: justify; text-indent: 2rem; margin-bottom: var(--spacing-md);" data-i18n="about.p2">Aos 13 anos tive meu primeiro computador, um Positivo que era da minha mãe. Pouco tempo depois, por volta de 2018, antes da pandemia, ganhei um notebook Samsung. Foi ali que minha jornada começou de forma mais concreta. Passei a editar vídeos simples para a família, criar imagens, experimentar ferramentas. Sempre gostei de desenhar, e o design surgiu naturalmente como uma forma de expressão.</p>
+			<p style="text-align: justify; text-indent: 2rem; margin-bottom: var(--spacing-md);" data-i18n="about.p3">Em 2020, fiz um trabalho marcante: um vídeo de formatura para a escola onde minha mãe trabalhava, reunindo fotos e vídeos das crianças ao longo dos anos até a formatura. O vídeo teve uma boa repercu ssão na cidade, especialmente no Facebook. Não recebi créditos, mas a satisfação das pessoas com a edição foi algo que me marcou profundamente.</p>
+			<p style="text-align: justify; text-indent: 2rem; margin-bottom: var(--spacing-md);" data-i18n="about.p4">No final de 2020, consegui meu primeiro computador pessoal e comecei a me aprofundar mais em edição, utilizando ferramentas como Photoshop e Canva. Surgiram alguns trabalhos, ainda pequenos, mas importantes para meu aprendizado. Em 2022, participei de um intensivo de Python e me apaixonei pela programação. Embora já tivesse tido algum contato com tecnologia na escola e em vídeos, foi ali que tive certeza de que queria seguir essa área. Comprei o curso da Hashtag, aprendi minha primeira linguagem — Python — e desenvolvi projetos enquanto ainda estava na escola.</p>
+			<p style="text-align: justify; text-indent: 2rem; margin-bottom: var(--spacing-md);" data-i18n="about.p5">Paralelamente, continuei no design. Criei, quase sem pretenção, uma camisa para minha sala usar no interclasses. No ano seguinte, essa mesma ideia evoluiu e minha arte foi escolhida para representar os Jogos Estudantis da cidade, sendo usada por alunos, atletas e torcedores. Ver minha criação sendo usada por tanta gente foi algo quase mágico, mesmo sem qualquer retorno financeiro.</p>
+			<p style="text-align: justify; text-indent: 2rem; margin-bottom: var(--spacing-md);" data-i18n="about.p6">No final desse mesmo ano, a coordenadora da escola me procurou para criar uma camisa para os funcionários. Esse foi meu primeiro trabalho profissional, com valor acordado. Desenvolvi várias versões, ajustei os detalhes e, quando o projeto foi entregue, a recepção foi extremamente positiva — tanto da coordenação quanto dos professores. A partir daí, passei a investir ainda mais no design, unindo essa área à programação.</p>
+			<p style="text-align: justify; text-indent: 2rem; margin-bottom: var(--spacing-md);" data-i18n="about.p7">Comecei então a desenvolver sites, redesigns e projetos para empresas locais e pessoas que já conheciam meu trabalho. No final de 2024, nasceu a Victis, inicialmente como uma marca de roupas, onde eu lançaria meus designs de moda através da Victis Clothes and Jolt, enquanto o design e a criação digital ficariam sob a Victis Creative and Jolt. O nome faz referência às minhas próprias iniciais: VCJ.</p>
+			<p style="text-align: justify; text-indent: 2rem; margin-bottom: var(--spacing-md);" data-i18n="about.p8">Em 2025, iniciei minha trajetória profissional registrada e comecei a faculdade, aprofundando meus conhecimentos em programação. Continuei realizando trabalhos de design, ainda que em menor volume devido ao tempo. A Victis acabou ficando em segundo plano, mas nunca deixou de existir. Em um futuro próximo, pretendo retomar a marca de roupas e fortalecer ainda mais os projetos de design e tecnologia.</p>
+			<p style="text-align: justify; text-indent: 2rem; margin-bottom: var(--spacing-lg); font-style: italic; color: var(--color-primary); font-weight: 500;" data-i18n="about.p9">Essa é uma parte da minha história. Um pouco do meu passado.<br>
+			Este site representa a construção do meu presente.<br>
+			E espero, junto de muitas pessoas, construir um futuro brilhante e bem-sucedido.</p>
+			<div class="clear"></div>
+		</section>
+
+		<section id="empresas">
+			<h2 data-i18n="section.empresas">Minhas empresas</h2>
+			<div class="enterprise-grid">
+				<article class="enterprise-card">
+					<img src="assets/images/Empresas/Logo Empresa.png" alt="Logo da Empresa" class="enterprise-image">
+					<div class="enterprise-content">
+						<h3 class="enterprise-title" data-i18n="enterprise.title">Nome da Empresa</h3>
+						<ul class="enterprise-details">
+							<li><strong>Empresa:</strong> <span data-i18n="enterprise.name">Victis Creative and Jolt</span></li>
+							<li><strong>Segmento:</strong> <span data-i18n="enterprise.segment">Design gráfico e tecnologia</span></li>
+							<li><strong>Fundação:</strong> <span data-i18n="enterprise.founded">11/2024</span></li>
+							<li><strong>Status:</strong> <span data-i18n="enterprise.status">Ativa</span></li>
+						</ul>
+						<p class="enterprise-description" data-i18n="enterprise.description">Design autoral, exclusivo e guiado pela experiência do cliente. Cada projeto nasce do zero, sem repetições, sem fórmulas prontas. Você define o caminho da sua marca — nós encontramos a melhor rota, com energia, precisão e identidade.</p>
+						<a href="pages/5.1-victis.html" class="btn-see-more" data-i18n="enterprise.see-more">Ver mais detalhes</a>
+						<span class="enterprise-date" data-i18n="enterprise.date">Fundada em novembro de 2024</span>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section id="contato">
+			<h2 data-i18n="nav.contato">Contato</h2>
+			<p data-i18n="contact.subtitle">Entre em contato através dos canais abaixo:</p>
+			<div class="contacts-container">
+				<a href="mailto:CordeiroJuniorVilacio@gmail.com" class="contact-item">
+					<div class="contact-icon-wrapper" style="background-image: url('assets/images/Contatos/email.png');"></div>
+					<div class="contact-info">
+							<h3 data-i18n="contact.email">Email</h3>
+					</div>
+				</a>
+				<a href="https://www.linkedin.com/in/vil%C3%A1cio-cordeiro-j%C3%BAnior-ba0aa7388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="contact-item">
+					<div class="contact-icon-wrapper" style="background-image: url('assets/images/Contatos/Linkedin.png');"></div>
+					<div class="contact-info">
+							<h3 data-i18n="contact.linkedin">LinkedIn</h3>
+					</div>
+				</a>
+				<a href="https://github.com/Vilacio-Cordeiro-JR" target="_blank" class="contact-item">
+					<div class="contact-icon-wrapper" style="background-image: url('assets/images/Contatos/github.png');"></div>
+					<div class="contact-info">
+							<h3 data-i18n="contact.github">GitHub</h3>
+					</div>
+				</a>
+				<a href="https://wa.me/5513996778306" target="_blank" class="contact-item">
+					<div class="contact-icon-wrapper" style="background-image: url('assets/images/Contatos/whatsapp.png');"></div>
+					<div class="contact-info">
+							<h3 data-i18n="contact.whatsapp">WhatsApp</h3>
+					</div>
+				</a>
+				<a href="https://www.instagram.com/vilacio_c_jr?igsh=Zjg5djV0cXdmNHM2" target="_blank" class="contact-item">
+					<div class="contact-icon-wrapper" style="background-image: url('assets/images/Contatos/Instagram.png');"></div>
+					<div class="contact-info">
+							<h3 data-i18n="contact.instagram">Instagram</h3>
+					</div>
+				</a>
+			</div>
+		</section>
 	</main>
 	
-	<!-- Dark Mode Toggle Button -->
-	<button class="theme-toggle" aria-label="Toggle Dark Mode">
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-			<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-		</svg>
-	</button>
-	
-	<!-- Scroll to Top Button -->
-	<button class="scroll-to-top" aria-label="Scroll to Top">↑</button>
+	<div class="tools-drawer">
+		<div class="tools-actions">
+			<button class="tools-toggle" type="button" aria-expanded="false" aria-controls="tools-panel">Ferramentas</button>
+			<button class="theme-toggle" aria-label="Toggle Dark Mode" data-i18n-aria-label="aria.theme-toggle">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+				</svg>
+			</button>
+		</div>
+		<div class="tools-panel" id="tools-panel" aria-hidden="true">
+			<p class="tools-title" data-i18n="tools.title">Ferramentas</p>
+			<a class="tool-item" href="pages/gerador-curriculo.html" data-i18n="tools.generator">Gerador de curriculo</a>
+			<button class="tool-item" type="button" disabled data-i18n="tools.ats">Checklist ATS (em breve)</button>
+			
+			<div class="tools-divider"></div>
+			
+			<p class="tools-title tools-language-title" data-i18n="tools.language">Idioma</p>
+			<div class="language-selector">
+				<button class="lang-btn lang-btn-active" data-lang="pt" title="Português">PT</button>
+				<button class="lang-btn" data-lang="en" title="English">EN</button>
+				<button class="lang-btn" data-lang="es" title="Español">ES</button>
+			</div>
+		</div>
+	</div>
 	
 	<footer>
-		<p>© 2026 Vilácio Cordeiro Júnior</p>
+		<div class="footer-content">
+			<div class="footer-brand">
+				<h3 data-i18n="footer.brand">Vilácio Cordeiro Júnior</h3>
+				<p data-i18n="footer.description">Design e tecnologia com foco em soluções claras, funcionais e elegantes.</p>
+			</div>
+			<div class="footer-links">
+				<p class="footer-title" data-i18n="footer.nav-title">Navegação</p>
+				<a href="#inicio" data-i18n="footer.nav-home">Principal</a>
+				<a href="#formacao" data-i18n="footer.nav-formation">Formação</a>
+				<a href="#projetos" data-i18n="footer.nav-projects">Projetos</a>
+				<a href="#contato" data-i18n="footer.nav-contact">Contato</a>
+			</div>
+			<div class="footer-links">
+				<p class="footer-title" data-i18n="footer.contact-title">Contato</p>
+				<a href="mailto:CordeiroJuniorVilacio@gmail.com" data-i18n="footer.contact-email">CordeiroJuniorVilacio@gmail.com</a>
+				<a href="https://wa.me/5513996778306" target="_blank" data-i18n="footer.contact-whatsapp">WhatsApp</a>
+				<a href="pages/curriculo.html" target="_blank" data-i18n="footer.contact-resume">Currículo completo</a>
+			</div>
+			<div class="footer-links">
+				<p class="footer-title" data-i18n="footer.social-title">Redes</p>
+				<a href="https://www.linkedin.com/in/vil%C3%A1cio-cordeiro-j%C3%BAnior-ba0aa7388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" data-i18n="footer.social-linkedin">LinkedIn</a>
+				<a href="https://github.com/Vilacio-Cordeiro-JR" target="_blank" data-i18n="footer.social-github">GitHub</a>
+				<a href="https://www.instagram.com/vilacio_c_jr?igsh=Zjg5djV0cXdmNHM2" target="_blank" data-i18n="footer.social-instagram">Instagram</a>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p data-i18n="footer.copyright">© 2026 Vilácio Cordeiro Júnior. Todos os direitos reservados.</p>
+		</div>
 	</footer>
 	
+	<script src="src/js/translations.js"></script>
 	<script src="src/js/script.js"></script>
 </body>
 </html>

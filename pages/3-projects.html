@@ -7,29 +7,9 @@
 	<link rel="stylesheet" href="../src/css/style.css">
 </head>
 <body>
-	<header>
-		<img src="../assets/images/ProfileImage.png" alt="Profile Picture">
-		<h1>Vilácio Cordeiro Júnior</h1>
-		<address>CordeiroJuniorVilacio@gmail.com | (13) 9 9677-8306 | <span id="age"></span> anos | Bertioga - SP - Brasil</address>
+	<header class="project-header">
+		<a href="../index.html#projetos" class="back-link">← Voltar para o site</a>
 	</header>
-	<script>
-		const birthDate = new Date('2006-11-14');
-		const today = new Date();
-		let age = today.getFullYear() - birthDate.getFullYear();
-		const monthDiff = today.getMonth() - birthDate.getMonth();
-		if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-			age--;
-		}
-		document.getElementById('age').textContent = age;
-	</script>
-	<nav>
-		<a href="1-MainPage.html">Principal</a>
-		<a href="2-academic.html">Formação Acadêmica</a>
-		<a href="3-projects.html" class="active">Projetos</a>
-		<a href="4-about.html">Sobre mim</a>
-		<a href="5-enterprises.html">Empresas</a>
-		<a href="6-contact.html">Contato</a>
-	</nav>
 	<main>
 		<h2>Meus Projetos</h2>
 		<p>Aqui estão os principais projetos que desenvolvi.</p>
@@ -56,6 +36,42 @@
 				<span class="tech-badge">Git</span>
 			</div>
 			<a href="3.2-my-site.html" class="btn-see-more">Ver Detalhes</a>
+		</div>
+
+		<div class="project-card">
+			<h3><a href="3.3-projeto-jarvis.html" class="project-link">projeto-jarvis</a></h3>
+			<p class="project-description">Assistente virtual experimental para automatizar tarefas e responder comandos de forma objetiva.</p>
+			<div class="project-tech">
+				<span class="tech-badge">Python</span>
+				<span class="tech-badge">Automacao</span>
+				<span class="tech-badge">CLI</span>
+				<span class="tech-badge">APIs</span>
+			</div>
+			<a href="3.3-projeto-jarvis.html" class="btn-see-more">Ver Detalhes</a>
+		</div>
+
+		<div class="project-card">
+			<h3><a href="3.4-projeto-anaminese.html" class="project-link">Projeto_anaminese</a></h3>
+			<p class="project-description">Formulario de anamnese digital para cadastro e organizacao de informacoes de atendimento.</p>
+			<div class="project-tech">
+				<span class="tech-badge">HTML5</span>
+				<span class="tech-badge">CSS3</span>
+				<span class="tech-badge">JavaScript</span>
+				<span class="tech-badge">Formularios</span>
+			</div>
+			<a href="3.4-projeto-anaminese.html" class="btn-see-more">Ver Detalhes</a>
+		</div>
+
+		<div class="project-card">
+			<h3><a href="3.5-projeto-excursoes.html" class="project-link">projeto_sistema_excurs-es</a></h3>
+			<p class="project-description">Sistema de controle de excursões com cadastros, organizacao de participantes e acompanhamento de dados.</p>
+			<div class="project-tech">
+				<span class="tech-badge">Python</span>
+				<span class="tech-badge">CRUD</span>
+				<span class="tech-badge">Relatorios</span>
+				<span class="tech-badge">Organizacao</span>
+			</div>
+			<a href="3.5-projeto-excursoes.html" class="btn-see-more">Ver Detalhes</a>
 		</div>
 	</main>
 	

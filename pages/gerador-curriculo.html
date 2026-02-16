@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gerador de Curriculo - Vilacio Cordeiro Junior</title>
+	<link rel="stylesheet" href="../src/css/style.css?v=2.0">
+	<link rel="stylesheet" href="../src/css/curriculo-builder.css">
+</head>
+<body class="builder-page">
+	<header class="builder-header">
+		<a href="../index.html" class="back-link">&#8592; Voltar ao site</a>
+		<div class="builder-actions">
+			<button type="button" class="btn-secondary" id="reset-cv">Limpar</button>
+			<button type="button" class="btn-primary" id="print-cv">Imprimir / Salvar PDF</button>
+		</div>
+	</header>
+
+	<main class="builder-layout">
+		<section class="builder-form">
+			<h1>Gerador de Curriculo</h1>
+			<p class="builder-note">Campos com * sao obrigatorios. Voce pode ativar ou desativar seccoes conforme o necessario.</p>
+
+			<div class="form-section">
+				<h2>Dados basicos</h2>
+				<label>Nome completo *</label>
+				<input type="text" id="name" required placeholder="Seu nome completo">
+
+				<label>Titulo profissional *</label>
+				<input type="text" id="headline" required placeholder="Ex: Desenvolvedor Back-end em Formacao">
+
+				<label>Endereco *</label>
+				<input type="text" id="address" required placeholder="Cidade - UF">
+
+				<label>Email *</label>
+				<input type="email" id="email" required placeholder="seuemail@email.com">
+
+				<label>Telefone *</label>
+				<input type="text" id="phone" required placeholder="(11) 9 0000-0000">
+
+				<label>LinkedIn</label>
+				<input type="text" id="linkedin" placeholder="linkedin.com/in/seu-perfil">
+
+				<label>GitHub</label>
+				<input type="text" id="github" placeholder="github.com/seu-usuario">
+			</div>
+
+			<div class="form-section">
+				<div class="section-toggle">
+					<input type="checkbox" id="summary-toggle" checked>
+					<label for="summary-toggle">Resumo profissional</label>
+				</div>
+				<textarea id="summary" rows="4" placeholder="Resumo breve, com foco na vaga"></textarea>
+			</div>
+
+			<div class="form-section">
+				<div class="section-toggle">
+					<input type="checkbox" id="projects-toggle" checked>
+					<label for="projects-toggle">Projetos</label>
+				</div>
+				<div class="item-list" id="projects-list"></div>
+				<button type="button" class="btn-secondary" id="add-project">Adicionar projeto</button>
+			</div>
+
+			<div class="form-section">
+				<div class="section-toggle">
+					<input type="checkbox" id="experience-toggle" checked>
+					<label for="experience-toggle">Experiencia</label>
+				</div>
+				<div class="item-list" id="experience-list"></div>
+				<button type="button" class="btn-secondary" id="add-experience">Adicionar experiencia</button>
+			</div>
+
+			<div class="form-section">
+				<div class="section-toggle">
+					<input type="checkbox" id="education-toggle" checked>
+					<label for="education-toggle">Formacao</label>
+				</div>
+				<div class="item-list" id="education-list"></div>
+				<button type="button" class="btn-secondary" id="add-education">Adicionar formacao</button>
+			</div>
+
+			<div class="form-section">
+				<div class="section-toggle">
+					<input type="checkbox" id="skills-toggle" checked>
+					<label for="skills-toggle">Habilidades tecnicas</label>
+				</div>
+				<label>Linguagens</label>
+				<input type="text" id="skills-languages" placeholder="Python, JavaScript, Java">
+				<label>Banco de dados</label>
+				<input type="text" id="skills-db" placeholder="SQL, PostgreSQL">
+				<label>Ferramentas</label>
+				<input type="text" id="skills-tools" placeholder="Git, Figma">
+				<label>Infraestrutura</label>
+				<input type="text" id="skills-infra" placeholder="Manutencao basica de computadores">
+			</div>
+
+			<div class="form-section">
+				<div class="section-toggle">
+					<input type="checkbox" id="certs-toggle" checked>
+					<label for="certs-toggle">Cursos e certificacoes</label>
+				</div>
+				<textarea id="certs" rows="3" placeholder="Liste um item por linha"></textarea>
+			</div>
+
+			<div class="form-section">
+				<div class="section-toggle">
+					<input type="checkbox" id="soft-toggle" checked>
+					<label for="soft-toggle">Competencias comportamentais</label>
+				</div>
+				<textarea id="soft" rows="3" placeholder="Liste um item por linha"></textarea>
+			</div>
+		</section>
+
+		<section class="builder-preview" id="cv-preview">
+			<div class="cv-page">
+				<header class="cv-header">
+					<h1 id="preview-name">Seu nome completo</h1>
+					<p class="cv-headline" id="preview-headline">Titulo profissional</p>
+					<p class="cv-contact" id="preview-contact">Cidade - UF | email@email.com | (11) 9 0000-0000</p>
+				</header>
+
+				<section class="cv-section" id="preview-summary-section">
+					<h2>Resumo profissional</h2>
+					<p id="preview-summary">Resumo breve com foco na vaga desejada.</p>
+				</section>
+
+				<section class="cv-section" id="preview-projects-section">
+					<h2>Projetos</h2>
+					<div id="preview-projects"></div>
+				</section>
+
+				<section class="cv-section" id="preview-experience-section">
+					<h2>Experiencia profissional</h2>
+					<div id="preview-experience"></div>
+				</section>
+
+				<section class="cv-section" id="preview-education-section">
+					<h2>Formacao academica</h2>
+					<div id="preview-education"></div>
+				</section>
+
+				<section class="cv-section" id="preview-skills-section">
+					<h2>Habilidades tecnicas</h2>
+					<div class="cv-skills">
+						<p><strong>Linguagens:</strong> <span id="preview-skills-languages">-</span></p>
+						<p><strong>Banco de dados:</strong> <span id="preview-skills-db">-</span></p>
+						<p><strong>Ferramentas:</strong> <span id="preview-skills-tools">-</span></p>
+						<p><strong>Infraestrutura:</strong> <span id="preview-skills-infra">-</span></p>
+					</div>
+				</section>
+
+				<section class="cv-section" id="preview-certs-section">
+					<h2>Cursos e qualificacoes</h2>
+					<ul id="preview-certs"></ul>
+				</section>
+
+				<section class="cv-section" id="preview-soft-section">
+					<h2>Competencias comportamentais</h2>
+					<ul id="preview-soft"></ul>
+				</section>
+			</div>
+		</section>
+	</main>
+
+	<template id="project-template">
+		<div class="item-card">
+			<div class="item-row">
+				<input type="text" class="item-title" placeholder="Nome do projeto">
+				<input type="text" class="item-tech" placeholder="Tecnologias usadas">
+			</div>
+			<input type="text" class="item-line" placeholder="1 linha explicando o que e">
+			<input type="text" class="item-bullet" placeholder="Caracteristica 1">
+			<input type="text" class="item-bullet" placeholder="Caracteristica 2">
+			<input type="text" class="item-bullet" placeholder="Caracteristica 3">
+			<input type="text" class="item-link" placeholder="GitHub (opcional)">
+			<button type="button" class="btn-link remove-item">Remover</button>
+		</div>
+	</template>
+
+	<template id="experience-template">
+		<div class="item-card">
+			<div class="item-row">
+				<input type="text" class="item-title" placeholder="Cargo">
+				<input type="text" class="item-period" placeholder="Periodo">
+			</div>
+			<input type="text" class="item-company" placeholder="Empresa">
+			<input type="text" class="item-bullet" placeholder="Atividade 1">
+			<input type="text" class="item-bullet" placeholder="Atividade 2">
+			<input type="text" class="item-bullet" placeholder="Atividade 3">
+			<button type="button" class="btn-link remove-item">Remover</button>
+		</div>
+	</template>
+
+	<template id="education-template">
+		<div class="item-card">
+			<div class="item-row">
+				<input type="text" class="item-title" placeholder="Curso">
+				<input type="text" class="item-period" placeholder="Periodo">
+			</div>
+			<input type="text" class="item-company" placeholder="Instituicao">
+			<button type="button" class="btn-link remove-item">Remover</button>
+		</div>
+	</template>
+
+	<button class="theme-toggle" aria-label="Toggle Dark Mode">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+			<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+		</svg>
+	</button>
+
+	<script src="../src/js/curriculo-builder.js"></script>
+	<script src="../src/js/script.js"></script>
+</body>
+</html>
