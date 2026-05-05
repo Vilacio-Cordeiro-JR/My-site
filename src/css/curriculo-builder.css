@@ -237,6 +237,27 @@ html[data-theme="dark"] .form-section textarea:focus {
 }
 
 @media print {
+
+  .cv-header {
+    border-bottom: 1.5px solid #e8e8e8;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+  }
+
+  .cv-section h2 {
+    border-bottom: 2px solid #0066cc;
+    text-transform: uppercase;
+    color: #0066cc;
+  }
+
+  .cv-item {
+    border-bottom: 0.5px dotted #e8e8e8;
+    padding-bottom: 6px;
+  }
+
+}
+
+@media print {
 	html, body {
 		width: 210mm;
 		height: 297mm;

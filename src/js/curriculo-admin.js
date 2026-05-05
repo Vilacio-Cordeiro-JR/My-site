@@ -8,13 +8,113 @@
   const ADMIN_FLAG = "isAdmin";
   const STORAGE_KEY = "curriculoData";
 
+  // ================================================================
+  // SEUS DADOS — edite aqui sempre que quiser atualizar o currículo
+  // ================================================================
+  const MEU_CURRICULO = {
+    name: "Vilácio Cordeiro Júnior",
+    headline: "Desenvolvedor Back-end em Formacao | Python | SQL",
+    address: "Bertioga - SP",
+    email: "CordeiroJuniorVilacio@gmail.com",
+    phone: "(13) 9 9677-8306",
+    linkedin: "linkedin.com/in/vilácio-cordeiro-júnior",
+    github: "",
+    summary:
+      "Estudante de Sistemas de Informacao com foco em desenvolvimento back-end e banco de dados. Conhecimentos em Python, SQL, logica de programacao e fundamentos de desenvolvimento back-end. Experiencia com rotinas administrativas e atendimento ao cliente. Busco oportunidade em TI para aplicar habilidades tecnicas e contribuir com solucoes eficientes.",
+    skills: {
+      languages: "Python, Java, C#, JavaScript, Node.js",
+      db: "SQL, NoSQL",
+      tools: "Pacote Office, Figma, Canva",
+      infra: "Montagem e manutencao basica de computadores",
+    },
+    certs: [
+      "Python Impressionador - Hashtag Treinamentos",
+      "Pacote Office",
+      "Ingles Intermediario (conversacao avancada, leitura e escrita intermediaria)",
+    ],
+    soft: [
+      "Adaptabilidade",
+      "Comunicacao eficaz",
+      "Trabalho em equipe",
+      "Proatividade",
+      "Comprometimento",
+    ],
+    projects: [
+      {
+        title: "Sistema de Orcamentos RadCom",
+        tech: "Node.js, Express, React, PostgreSQL/SQLite",
+        line: "Sistema web para gestao de orcamentos com autenticacao e controle de acesso.",
+        bullets: [
+          "Desenvolvimento back-end e front-end.",
+          "Integracao com banco relacional.",
+          "Hierarquia de usuarios e relatorios.",
+        ],
+        link: "github.com/Vilacio-Cordeiro-Jr/Projeto-Radcom-Costa",
+      },
+      {
+        title: "projeto-jarvis",
+        tech: "Python, CLI",
+        line: "Assistente virtual experimental para automatizar rotinas.",
+        bullets: [
+          "Desenvolvimento de comandos com organizacao modular.",
+          "Automacao de tarefas e execucao de comandos rapidos.",
+          "Base extensivel para novas integracoes.",
+        ],
+        link: "github.com/Vilacio-Cordeiro-JR/projeto-jarvis",
+      },
+      {
+        title: "Projeto_anaminese",
+        tech: "HTML, CSS, JavaScript",
+        line: "Formulario digital para cadastro e organizacao de dados de atendimento.",
+        bullets: [
+          "Desenvolvimento de formulario com validacoes basicas.",
+          "Padronizacao de dados e organizacao por secoes.",
+          "Base pronta para exportacao ou integracoes futuras.",
+        ],
+        link: "github.com/Vilacio-Cordeiro-JR/Projeto_anaminese",
+      },
+    ],
+    experience: [
+      {
+        role: "Auxiliar de Escritorio",
+        company: "RADCOM Alarmes",
+        period: "Out/2025 - Dez/2025",
+        bullets: [
+          "Elaboracao de contratos e propostas comerciais com organizacao e padronizacao.",
+          "Atendimento direto ao cliente, garantindo suporte e resolucao eficiente de demandas.",
+          "Producao de materiais impressos (adesivos e documentos institucionais).",
+          "Apoio administrativo geral e controle de documentos.",
+        ],
+      },
+      {
+        role: "Agente de Seguranca - Jovem Aprendiz",
+        company: "Associacao dos Amigos da Riviera - CAMPB",
+        period: "Mai/2025 - Out/2025",
+        bullets: [
+          "Patrulhamento preventivo em area costeira, seguindo protocolos de seguranca.",
+          "Orientacao ao publico com foco em seguranca e boa comunicacao.",
+          "Comunicacao via radio operacional e registro de ocorrencias.",
+          "Atuacao com responsabilidade e disciplina em ambiente supervisionado.",
+        ],
+      },
+    ],
+    education: [
+      {
+        course: "Bacharelado em Sistemas de Informacao",
+        school: "Universidade Santa Cecilia (UNISANTA)",
+        period: "Inicio: 2025 | Previsao de conclusao: 2029",
+      },
+    ],
+  };
+  // ================================================================
+
   // --- ACESSO OCULTO ---
   function showAdminPrompt() {
     const senha = prompt("Digite a senha de admin:");
     if (senha === ADMIN_PASSWORD) {
       localStorage.setItem(ADMIN_FLAG, "true");
       window.location.hash = "#admin";
-      renderAdminPanel();
+      activateAdminMode();
     } else {
       alert("Senha incorreta!");
     }
@@ -30,18 +130,9 @@
   // Botão invisível (canto inferior direito)
   function createInvisibleButton() {
     const btn = document.createElement("button");
-    btn.textContent = "";
     btn.title = "Abrir admin";
-    btn.style.position = "fixed";
-    btn.style.right = "8px";
-    btn.style.bottom = "8px";
-    btn.style.width = "32px";
-    btn.style.height = "32px";
-    btn.style.opacity = "0.01";
-    btn.style.zIndex = "9999";
-    btn.style.background = "none";
-    btn.style.border = "none";
-    btn.style.cursor = "pointer";
+    btn.style.cssText =
+      "position:fixed;right:8px;bottom:8px;width:32px;height:32px;opacity:0.01;z-index:9999;background:none;border:none;cursor:pointer;";
     btn.addEventListener("click", showAdminPrompt);
     document.body.appendChild(btn);
   }
@@ -50,7 +141,7 @@
   function checkAdminRoute() {
     if (window.location.hash === "#admin") {
       if (localStorage.getItem(ADMIN_FLAG) === "true") {
-        renderAdminPanel();
+        activateAdminMode();
       } else {
         showAdminPrompt();
       }
@@ -58,272 +149,168 @@
   }
   window.addEventListener("hashchange", checkAdminRoute);
 
-  // --- PAINEL DE PERSONALIZAÇÃO ---
-  function renderAdminPanel() {
-    // Remove painel antigo se já existir
-    const old = document.getElementById("admin-panel");
-    if (old) old.remove();
+  // --- ATIVA O MODO ADM ---
+  function activateAdminMode() {
+    // Carrega seus dados no builder
+    loadMyCurriculoIntoBuilder(MEU_CURRICULO);
 
-    // Container
-    const panel = document.createElement("div");
-    panel.id = "admin-panel";
-    panel.style.position = "fixed";
-    panel.style.top = "0";
-    panel.style.left = "0";
-    panel.style.width = "100vw";
-    panel.style.height = "100vh";
-    panel.style.background = "rgba(0,0,0,0.85)";
-    panel.style.zIndex = "10000";
-    panel.style.overflow = "auto";
-    panel.style.color = "#fff";
-    panel.style.padding = "32px 0";
-    panel.style.fontFamily = "sans-serif";
+    // Mostra badge de admin
+    showAdminBadge();
+  }
 
-    // Fechar
-    const closeBtn = document.createElement("button");
-    closeBtn.textContent = "Fechar";
-    closeBtn.style.position = "absolute";
-    closeBtn.style.top = "16px";
-    closeBtn.style.right = "32px";
-    closeBtn.style.background = "#222";
-    closeBtn.style.color = "#fff";
-    closeBtn.style.border = "none";
-    closeBtn.style.padding = "8px 16px";
-    closeBtn.style.cursor = "pointer";
-    closeBtn.onclick = function () {
-      panel.remove();
-    };
-    panel.appendChild(closeBtn);
+  // --- INJETA OS DADOS NO BUILDER ---
+  function loadMyCurriculoIntoBuilder(data) {
+    const byId = (id) => document.getElementById(id);
 
-    // Dados
-    const data = loadData();
+    // Dados básicos
+    setVal("name", data.name);
+    setVal("headline", data.headline);
+    setVal("address", data.address);
+    setVal("email", data.email);
+    setVal("phone", data.phone);
+    setVal("linkedin", data.linkedin);
+    setVal("github", data.github);
 
-    // Formulário
-    const form = document.createElement("form");
-    form.style.maxWidth = "600px";
-    form.style.margin = "40px auto";
-    form.style.background = "#222";
-    form.style.padding = "32px";
-    form.style.borderRadius = "8px";
-    form.onsubmit = function (e) {
-      e.preventDefault();
-      saveDataFromForm(form);
-      alert("Alterações salvas!");
-    };
+    // Resumo
+    setVal("summary", data.summary);
 
-    // --- Dados pessoais ---
-    form.appendChild(h2("Dados pessoais"));
-    form.appendChild(labelInput("Nome", "nome", data.nome || ""));
-    form.appendChild(labelTextarea("Resumo", "resumo", data.resumo || ""));
+    // Habilidades
+    setVal("skills-languages", data.skills.languages);
+    setVal("skills-db", data.skills.db);
+    setVal("skills-tools", data.skills.tools);
+    setVal("skills-infra", data.skills.infra);
 
-    // --- Competências ---
-    form.appendChild(h2("Competências"));
-    const compList = document.createElement("div");
-    compList.id = "comp-list";
-    (data.competencias || []).forEach((c, i) => {
-      compList.appendChild(renderCompetencia(c, i));
+    // Certificações (uma por linha)
+    setVal("certs", data.certs.join("\n"));
+
+    // Soft skills (uma por linha)
+    setVal("soft", data.soft.join("\n"));
+
+    // Limpa listas dinâmicas e repopula
+    populateList("projects-list", "project-template", data.projects, fillProjectCard);
+    populateList("experience-list", "experience-template", data.experience, fillExperienceCard);
+    populateList("education-list", "education-template", data.education, fillEducationCard);
+
+    // Dispara re-render do preview
+    triggerRenderAll();
+  }
+
+  // --- HELPERS DE INJEÇÃO ---
+  function setVal(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.value = value || "";
+  }
+
+  function populateList(listId, templateId, items, fillFn) {
+    const list = document.getElementById(listId);
+    const template = document.getElementById(templateId);
+    if (!list || !template) return;
+
+    // Remove cards existentes
+    list.querySelectorAll(".item-card").forEach((c) => c.remove());
+
+    items.forEach((item) => {
+      const clone = template.content.firstElementChild.cloneNode(true);
+      fillFn(clone, item);
+
+      // Reconecta listeners do builder
+      clone.querySelectorAll("input, textarea").forEach((input) => {
+        input.addEventListener("input", triggerRenderAll);
+      });
+      clone.querySelectorAll(".remove-item").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          clone.remove();
+          triggerRenderAll();
+        });
+      });
+
+      list.appendChild(clone);
     });
-    form.appendChild(compList);
-    const addCompBtn = document.createElement("button");
-    addCompBtn.type = "button";
-    addCompBtn.textContent = "Adicionar competência";
-    addCompBtn.onclick = function () {
-      compList.appendChild(renderCompetencia({ nome: "", ativo: true }, Date.now()));
-    };
-    form.appendChild(addCompBtn);
+  }
 
-    // --- Experiências ---
-    form.appendChild(h2("Experiências"));
-    const expList = document.createElement("div");
-    expList.id = "exp-list";
-    (data.experiencias || []).forEach((e, i) => {
-      expList.appendChild(renderExperiencia(e, i));
+  function fillProjectCard(card, p) {
+    const inputs = card.querySelectorAll("input");
+    const bullets = card.querySelectorAll(".item-bullet");
+    // [0] title, [1] tech, [2] line, bullets..., link (último)
+    if (inputs[0]) inputs[0].value = p.title || "";   // item-title
+    if (inputs[1]) inputs[1].value = p.tech || "";    // item-tech
+    if (inputs[2]) inputs[2].value = p.line || "";    // item-line
+    (p.bullets || []).forEach((b, i) => {
+      if (bullets[i]) bullets[i].value = b;
     });
-    form.appendChild(expList);
-    const addExpBtn = document.createElement("button");
-    addExpBtn.type = "button";
-    addExpBtn.textContent = "Adicionar experiência";
-    addExpBtn.onclick = function () {
-      expList.appendChild(renderExperiencia({ empresa: "", cargo: "", descricao: "", ativo: true }, Date.now()));
-    };
-    form.appendChild(addExpBtn);
-
-    // --- Botões extras ---
-    form.appendChild(document.createElement("hr"));
-    const saveBtn = document.createElement("button");
-    saveBtn.type = "submit";
-    saveBtn.textContent = "Salvar alterações";
-    form.appendChild(saveBtn);
-
-    const resetBtn = document.createElement("button");
-    resetBtn.type = "button";
-    resetBtn.textContent = "Resetar currículo";
-    resetBtn.onclick = function () {
-      if (confirm("Tem certeza? Isso limpará o currículo salvo.")) {
-        localStorage.removeItem(STORAGE_KEY);
-        alert("Currículo resetado!");
-        panel.remove();
-      }
-    };
-    form.appendChild(resetBtn);
-
-    const exportBtn = document.createElement("button");
-    exportBtn.type = "button";
-    exportBtn.textContent = "Exportar JSON";
-    exportBtn.onclick = function () {
-      const blob = new Blob([JSON.stringify(loadData(), null, 2)], { type: "application/json" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "curriculo.json";
-      a.click();
-      URL.revokeObjectURL(url);
-    };
-    form.appendChild(exportBtn);
-
-    const importBtn = document.createElement("button");
-    importBtn.type = "button";
-    importBtn.textContent = "Importar JSON";
-    importBtn.onclick = function () {
-      const input = document.createElement("input");
-      input.type = "file";
-      input.accept = ".json,application/json";
-      input.onchange = function (e) {
-        const file = e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = function (evt) {
-          try {
-            const obj = JSON.parse(evt.target.result);
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
-            alert("Importado com sucesso!");
-            panel.remove();
-          } catch (err) {
-            alert("Erro ao importar JSON");
-          }
-        };
-        reader.readAsText(file);
-      };
-      input.click();
-    };
-    form.appendChild(importBtn);
-
-    panel.appendChild(form);
-    document.body.appendChild(panel);
+    const linkInput = card.querySelector(".item-link");
+    if (linkInput) linkInput.value = p.link || "";
   }
 
-  // --- COMPONENTES AUXILIARES ---
-  function h2(txt) {
-    const h = document.createElement("h2");
-    h.textContent = txt;
-    return h;
-  }
-  function labelInput(label, name, value) {
-    const div = document.createElement("div");
-    const l = document.createElement("label");
-    l.textContent = label;
-    const input = document.createElement("input");
-    input.type = "text";
-    input.name = name;
-    input.value = value;
-    div.appendChild(l);
-    div.appendChild(input);
-    return div;
-  }
-  function labelTextarea(label, name, value) {
-    const div = document.createElement("div");
-    const l = document.createElement("label");
-    l.textContent = label;
-    const ta = document.createElement("textarea");
-    ta.name = name;
-    ta.value = value;
-    div.appendChild(l);
-    div.appendChild(ta);
-    return div;
-  }
-  function renderCompetencia(c, idx) {
-    const row = document.createElement("div");
-    row.style.display = "flex";
-    row.style.alignItems = "center";
-    row.style.gap = "8px";
-    const check = document.createElement("input");
-    check.type = "checkbox";
-    check.checked = !!c.ativo;
-    check.title = "Ativo";
-    const input = document.createElement("input");
-    input.type = "text";
-    input.value = c.nome || "";
-    input.placeholder = "Competência";
-    const remove = document.createElement("button");
-    remove.type = "button";
-    remove.textContent = "Remover";
-    remove.onclick = function () {
-      row.remove();
-    };
-    row.appendChild(check);
-    row.appendChild(input);
-    row.appendChild(remove);
-    return row;
-  }
-  function renderExperiencia(e, idx) {
-    const row = document.createElement("div");
-    row.style.display = "flex";
-    row.style.flexDirection = "column";
-    row.style.gap = "4px";
-    const ativo = document.createElement("input");
-    ativo.type = "checkbox";
-    ativo.checked = !!e.ativo;
-    ativo.title = "Ativo";
-    const empresa = document.createElement("input");
-    empresa.type = "text";
-    empresa.value = e.empresa || "";
-    empresa.placeholder = "Empresa";
-    const cargo = document.createElement("input");
-    cargo.type = "text";
-    cargo.value = e.cargo || "";
-    cargo.placeholder = "Cargo";
-    const desc = document.createElement("textarea");
-    desc.value = e.descricao || "";
-    desc.placeholder = "Descrição";
-    const remove = document.createElement("button");
-    remove.type = "button";
-    remove.textContent = "Remover";
-    remove.onclick = function () {
-      row.remove();
-    };
-    row.appendChild(ativo);
-    row.appendChild(empresa);
-    row.appendChild(cargo);
-    row.appendChild(desc);
-    row.appendChild(remove);
-    return row;
+  function fillExperienceCard(card, e) {
+    const titleInput = card.querySelector(".item-title");
+    const periodInput = card.querySelector(".item-period");
+    const companyInput = card.querySelector(".item-company");
+    const bullets = card.querySelectorAll(".item-bullet");
+    if (titleInput) titleInput.value = e.role || "";
+    if (periodInput) periodInput.value = e.period || "";
+    if (companyInput) companyInput.value = e.company || "";
+    (e.bullets || []).forEach((b, i) => {
+      if (bullets[i]) bullets[i].value = b;
+    });
   }
 
-  // --- PERSISTÊNCIA ---
-  function loadData() {
-    try {
-      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-    } catch {
-      return {};
+  function fillEducationCard(card, ed) {
+    const titleInput = card.querySelector(".item-title");
+    const periodInput = card.querySelector(".item-period");
+    const companyInput = card.querySelector(".item-company");
+    if (titleInput) titleInput.value = ed.course || "";
+    if (periodInput) periodInput.value = ed.period || "";
+    if (companyInput) companyInput.value = ed.school || "";
+  }
+
+  // Dispara o renderAll do builder sem precisar importar a função
+    function triggerRenderAll() {
+    if (typeof window.builderRenderAll === "function") {
+        window.builderRenderAll();
     }
-  }
-  function saveDataFromForm(form) {
-    const data = {};
-    data.nome = form.elements["nome"].value;
-    data.resumo = form.elements["resumo"].value;
-    // Competências
-    data.competencias = Array.from(form.querySelectorAll("#comp-list > div")).map((row) => ({
-      nome: row.querySelector("input[type=text]").value,
-      ativo: row.querySelector("input[type=checkbox]").checked,
-    })).filter((c) => c.nome.trim());
-    // Experiências
-    data.experiencias = Array.from(form.querySelectorAll("#exp-list > div")).map((row) => ({
-      ativo: row.querySelector("input[type=checkbox]").checked,
-      empresa: row.querySelectorAll("input[type=text]")[0].value,
-      cargo: row.querySelectorAll("input[type=text]")[1].value,
-      descricao: row.querySelector("textarea").value,
-    })).filter((e) => e.empresa.trim() || e.cargo.trim() || e.descricao.trim());
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+  // --- BADGE DE ADMIN ---
+  function showAdminBadge() {
+    if (document.getElementById("admin-badge")) return;
+    const badge = document.createElement("div");
+    badge.id = "admin-badge";
+    badge.innerHTML = `
+      <span>🔑 Modo ADM ativo</span>
+      <button id="admin-logout" title="Sair do modo ADM">Sair</button>
+    `;
+    badge.style.cssText = `
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      background: #ff6b35;
+      color: #fff;
+      font-family: sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      z-index: 9998;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    `;
+
+    // Garante que o badge não aparece na impressão
+    const printStyle = document.createElement("style");
+    printStyle.id = "admin-print-style";
+    printStyle.textContent = `@media print { #admin-badge { display: none !important; } }`;
+    document.head.appendChild(printStyle);
+    badge.querySelector("#admin-logout").style.cssText =
+      "background:rgba(0,0,0,0.25);border:none;color:#fff;cursor:pointer;border-radius:12px;padding:2px 10px;font-size:12px;";
+    badge.querySelector("#admin-logout").addEventListener("click", () => {
+      localStorage.removeItem(ADMIN_FLAG);
+      window.location.hash = "";
+      badge.remove();
+    });
+    document.body.appendChild(badge);
   }
 
   // --- INICIALIZAÇÃO ---
