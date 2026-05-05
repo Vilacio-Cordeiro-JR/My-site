@@ -1,3 +1,17 @@
+
+// --- INTEGRAÇÃO COM LOCALSTORAGE (PAINEL ADMIN) ---
+const STORAGE_KEY = "curriculoData";
+function loadCurriculoData() {
+	try {
+		return JSON.parse(localStorage.getItem(STORAGE_KEY)) || null;
+	} catch {
+		return null;
+	}
+}
+function saveCurriculoData(data) {
+	localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
 const byId = (id) => document.getElementById(id);
 
 const state = {
@@ -9,72 +23,106 @@ const state = {
 function getLines(value) {
 	return value
 		.split("\n")
-		.map((line) => line.trim())
-		.filter(Boolean);
-}
+				list.appendChild(li);
 
-function setText(target, value, fallback = "-") {
-	target.textContent = value && value.trim() ? value.trim() : fallback;
-}
-
-function renderContact() {
-	const address = byId("address").value.trim();
-	const email = byId("email").value.trim();
-	const phone = byId("phone").value.trim();
-	const linkedin = byId("linkedin").value.trim();
-	const github = byId("github").value.trim();
-
-	const parts = [address, email, phone, linkedin, github].filter(Boolean);
-	setText(byId("preview-contact"), parts.join(" | "), "");
-}
-
-function renderSummary() {
-	const summary = byId("summary").value.trim();
-	const section = byId("preview-summary-section");
-	const enabled = byId("summary-toggle").checked;
-	section.style.display = enabled ? "block" : "none";
-	setText(byId("preview-summary"), summary, "Resumo breve com foco na vaga desejada.");
-}
-
-function renderProjects() {
-	const section = byId("preview-projects-section");
-	const enabled = byId("projects-toggle").checked;
-	section.style.display = enabled ? "block" : "none";
-
-	const container = byId("preview-projects");
-	container.innerHTML = "";
-	if (!enabled) return;
-
-	const items = Array.from(document.querySelectorAll("#projects-list .item-card"));
-	items.forEach((item) => {
-		const title = item.querySelector(".item-title").value.trim();
-		if (!title) return;
-		const tech = item.querySelector(".item-tech").value.trim();
-		const line = item.querySelector(".item-line").value.trim();
-		const bullets = Array.from(item.querySelectorAll(".item-bullet"))
-			.map((input) => input.value.trim())
-			.filter(Boolean);
-		const link = item.querySelector(".item-link").value.trim();
-
-		const wrapper = document.createElement("div");
-		wrapper.className = "cv-item";
-
-		const heading = document.createElement("h3");
-		heading.textContent = tech ? `${title} (${tech})` : title;
-		wrapper.appendChild(heading);
-
-		if (line) {
-			const lineEl = document.createElement("p");
-			lineEl.textContent = line;
-			wrapper.appendChild(lineEl);
+		function fillBuilderFromData(data) {
+			// Dados pessoais
+			if (data.nome) byId("name").value = data.nome;
+			if (data.resumo) byId("summary").value = data.resumo;
+			// Competências
+			if (Array.isArray(data.competencias)) {
+				const list = byId("skills-languages");
+				// Exibe apenas as competências ativas, separadas por vírgula
+				list.value = data.competencias.filter(c => c.ativo).map(c => c.nome).join(", ");
+			}
+			// Experiências
+			if (Array.isArray(data.experiencias)) {
+				// Limpa lista
+				const expList = byId("experience-list");
+				expList.innerHTML = "";
+				data.experiencias.filter(e => e.ativo).forEach((e) => {
+					addItem("experience-list", "experience-template");
+					const cards = expList.querySelectorAll(".item-card");
+					const card = cards[cards.length - 1];
+					card.querySelector(".item-title").value = e.cargo || "";
+					card.querySelector(".item-company").value = e.empresa || "";
+					card.querySelector("textarea, .item-bullet").value = e.descricao || "";
+				});
+			}
 		}
 
-		if (bullets.length) {
-			const list = document.createElement("ul");
-			bullets.forEach((bullet) => {
-				const li = document.createElement("li");
-				li.textContent = bullet;
-				list.appendChild(li);
+		function initBuilder() {
+			// Se houver dados no localStorage, preenche o formulário
+			const adminData = loadCurriculoData();
+			if (adminData) {
+				fillBuilderFromData(adminData);
+			} else {
+				addItem("projects-list", "project-template");
+				addItem("experience-list", "experience-template");
+				addItem("education-list", "education-template");
+			}
+
+			[
+				"name",
+				"headline",
+				"address",
+				"email",
+				"phone",
+				"linkedin",
+				"github",
+				"summary",
+				"skills-languages",
+				"skills-db",
+				"skills-tools",
+				"skills-infra",
+				"certs",
+				"soft"
+			].forEach((id) => {
+				const input = byId(id);
+				if (!input) return;
+				input.addEventListener("input", renderAll);
+			});
+
+			["summary-toggle", "projects-toggle", "experience-toggle", "education-toggle", "skills-toggle", "certs-toggle", "soft-toggle"].forEach((id) => {
+				const checkbox = byId(id);
+				checkbox.addEventListener("change", renderAll);
+			});
+
+			byId("add-project").addEventListener("click", () => {
+				addItem("projects-list", "project-template");
+			});
+
+			byId("add-experience").addEventListener("click", () => {
+				addItem("experience-list", "experience-template");
+			});
+
+			byId("add-education").addEventListener("click", () => {
+				addItem("education-list", "education-template");
+			});
+
+			byId("print-cv").addEventListener("click", () => {
+				window.print();
+			});
+
+			byId("reset-cv").addEventListener("click", () => {
+				if (!confirm("Deseja limpar todos os campos?")) return;
+				document.querySelectorAll(".builder-form input, .builder-form textarea").forEach((el) => {
+					el.value = "";
+				});
+				["summary-toggle", "projects-toggle", "experience-toggle", "education-toggle", "skills-toggle", "certs-toggle", "soft-toggle"].forEach((id) => {
+					byId(id).checked = true;
+				});
+				document.querySelectorAll("#projects-list .item-card, #experience-list .item-card, #education-list .item-card").forEach((el) => el.remove());
+				addItem("projects-list", "project-template");
+				addItem("experience-list", "experience-template");
+				addItem("education-list", "education-template");
+				renderAll();
+				// Limpa dados do admin
+				localStorage.removeItem(STORAGE_KEY);
+			});
+
+			renderAll();
+		}
 			});
 			wrapper.appendChild(list);
 		}
